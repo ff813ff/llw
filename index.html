@@ -3,143 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专业技术服务 - 200+行业关键词解决方案 | 创新科技</title>
-    <meta name="description" content="我们提供200+专业技术服务，涵盖Web开发、移动应用、云服务、人工智能、数据分析、网络安全等全方位解决方案。">
+    <title>专业技术服务关键词完整URL</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
             line-height: 1.6; 
             color: #333; 
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            background: #f5f7fa;
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1000px;
+            width: 100%;
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             overflow: hidden;
         }
         header {
-            background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+            background: #2c3e50;
             color: white;
-            padding: 40px 30px;
+            padding: 25px;
             text-align: center;
         }
         h1 { 
-            font-size: 2.8rem; 
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 1.8rem; 
+            margin-bottom: 10px;
         }
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        .main-content {
+        .content {
             padding: 30px;
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
-        }
-        @media (max-width: 900px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-        }
-        .keyword-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            max-height: 600px;
-            overflow-y: auto;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border: 1px solid #e9ecef;
-        }
-        .keyword-item {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 12px 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .keyword-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-color: #3498db;
-        }
-        .keyword-item.active {
-            background: #e3f2fd;
-            border-color: #2196f3;
-            color: #1565c0;
-        }
-        .keyword-text {
-            font-weight: 500;
-        }
-        .keyword-category {
-            font-size: 0.8rem;
-            color: #666;
-            background: #f1f3f4;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-top: 5px;
-        }
-        .control-panel {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
-            border: 1px solid #e9ecef;
-        }
-        .selected-keywords {
-            max-height: 300px;
-            overflow-y: auto;
-            margin: 20px 0;
-            padding: 15px;
-            background: white;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-        }
-        .selected-item {
-            background: #e3f2fd;
-            color: #1565c0;
-            padding: 6px 12px;
-            margin: 5px;
-            border-radius: 15px;
-            display: inline-block;
-            font-size: 0.9rem;
-        }
-        .selected-item .remove {
-            margin-left: 8px;
-            cursor: pointer;
-            font-weight: bold;
         }
         .url-display {
             background: #2c3e50;
             color: #ecf0f1;
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
             font-family: 'Courier New', monospace;
             word-break: break-all;
             font-size: 0.9rem;
             margin: 20px 0;
+            line-height: 1.5;
             cursor: pointer;
+            border: 2px solid #3498db;
+        }
+        .url-display:hover {
+            background: #1a252f;
+        }
+        .copy-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            background: #3498db;
+            color: white;
+            transition: all 0.3s;
+        }
+        .copy-btn:hover {
+            background: #2980b9;
         }
         .stats {
             display: flex;
             justify-content: space-between;
             background: #f1f3f4;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 6px;
             margin-bottom: 20px;
         }
         .stat-item {
@@ -154,78 +91,13 @@
             font-size: 0.9rem;
             color: #666;
         }
-        .category-filter {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
-        }
-        .cat-btn {
-            padding: 8px 16px;
-            border: 1px solid #ddd;
-            background: white;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .cat-btn:hover, .cat-btn.active {
-            background: #3498db;
-            color: white;
-            border-color: #3498db;
-        }
-        .action-btn {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        .btn-primary {
-            background: #3498db;
-            color: white;
-        }
-        .btn-primary:hover {
-            background: #2980b9;
-        }
-        .btn-secondary {
-            background: #95a5a6;
-            color: white;
-        }
-        .btn-secondary:hover {
-            background: #7f8c8d;
-        }
-        .search-box {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
         footer {
             text-align: center;
-            padding: 25px;
+            padding: 20px;
             background: #f8f9fa;
             border-top: 1px solid #e9ecef;
             color: #666;
             font-size: 0.9rem;
-        }
-        .share-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            justify-content: center;
-        }
-        .share-btn {
-            padding: 8px 16px;
-            background: #2c3e50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
         }
         .notification {
             position: fixed;
@@ -239,21 +111,33 @@
             display: none;
             z-index: 1000;
         }
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>专业技术解决方案</h1>
-            <p class="subtitle">200+行业关键词 | 全方位技术服务 | GitHub Pages部署</p>
+            <h1>专业技术服务关键词完整URL</h1>
+            <p>200+行业关键词一次性生成</p>
+        </header>
+        
+        <div class="content">
+            <div class="note">
+                注意：此URL包含所有200+个专业技术服务关键词，用于系统内部数据传递和处理，不适用于前端展示。
+            </div>
+            
             <div class="stats">
                 <div class="stat-item">
-                    <div class="stat-value" id="total-keywords">0</div>
-                    <div class="stat-label">总关键词</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="selected-count">0</div>
-                    <div class="stat-label">已选择</div>
+                    <div class="stat-value" id="keyword-count">0</div>
+                    <div class="stat-label">关键词总数</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value" id="url-length">0</div>
@@ -264,446 +148,136 @@
                     <div class="stat-label">分类数量</div>
                 </div>
             </div>
-        </header>
-        
-        <div class="main-content">
-            <div>
-                <input type="text" class="search-box" placeholder="搜索关键词..." id="keyword-search">
-                
-                <div class="category-filter" id="category-filter">
-                    <!-- 分类按钮将由JavaScript生成 -->
-                </div>
-                
-                <div class="keyword-grid" id="keyword-grid">
-                    <!-- 关键词将由JavaScript生成 -->
-                </div>
+            
+            <h3>完整关键词URL</h3>
+            <div class="url-display" id="url-display">
+                <!-- URL将动态生成在这里 -->
             </div>
             
-            <div class="control-panel">
-                <h3>已选择的关键词</h3>
-                <div class="selected-keywords" id="selected-keywords">
-                    <!-- 已选择的关键词将显示在这里 -->
-                </div>
-                
-                <h3>当前URL</h3>
-                <div class="url-display" id="url-display">
-                    <!-- URL将动态显示在这里 -->
-                </div>
-                
-                <button class="action-btn btn-primary" onclick="generateURL()">更新URL参数</button>
-                <button class="action-btn btn-secondary" onclick="clearAllKeywords()">清空所有选择</button>
-                <button class="action-btn" onclick="selectRandomKeywords(10)" style="background:#9b59b6;color:white;">随机选择10个</button>
-                <button class="action-btn" onclick="selectRandomKeywords(20)" style="background:#e74c3c;color:white;">随机选择20个</button>
-                
-                <div style="margin-top:20px;">
-                    <label for="max-url-length">最大URL长度:</label>
-                    <input type="range" id="max-url-length" min="100" max="2000" value="1500" style="width:100%;">
-                    <span id="max-length-value">1500 字符</span>
+            <button class="copy-btn" onclick="copyURL()">复制完整URL到剪贴板</button>
+            
+            <div style="margin-top: 30px;">
+                <h3>包含的关键词类别：</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">网站开发</div>
+                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">移动应用</div>
+                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">云计算</div>
+                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">人工智能</div>
+                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">数据分析</div>
+                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">网络安全</div>
+                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">DevOps</div>
+                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">电子商务</div>
                 </div>
             </div>
         </div>
         
         <footer>
-            <p>© 2024 创新科技 | 200+专业关键词解决方案 | 兼容GitHub Pages部署</p>
-            <p>此页面使用纯JavaScript实现动态URL参数管理，无需服务器端配置</p>
-            <div class="share-buttons">
-                <button class="share-btn" onclick="copyURL()">复制URL</button>
-                <button class="share-btn" onclick="shareOnTwitter()">分享到Twitter</button>
-                <button class="share-btn" onclick="shareOnLinkedIn()">分享到LinkedIn</button>
-            </div>
+            <p>© 2024 专业技术服务 | 200+行业关键词完整URL</p>
+            <p style="margin-top: 10px; font-size: 0.85rem;">此URL包含所有关键词，用于系统内部处理</p>
         </footer>
     </div>
     
-    <div class="notification" id="notification">已复制到剪贴板！</div>
+    <div class="notification" id="notification">URL已复制到剪贴板！</div>
 
     <script>
-        // 200+关键词数据
-        const keywordCategories = {
-            "web": {
-                name: "网站开发",
-                keywords: [
-                    "前端开发", "后端开发", "全栈开发", "响应式设计", "用户体验设计", "用户界面设计", 
-                    "HTML5开发", "CSS3样式", "JavaScript编程", "TypeScript开发", "React开发", 
-                    "Vue.js开发", "Angular开发", "Node.js开发", "PHP开发", "Python Web开发", 
-                    "Ruby on Rails", "Java Web开发", ".NET开发", "WordPress开发", "Drupal开发", 
-                    "Joomla开发", "Magento开发", "Shopify开发", "WooCommerce开发", "API开发", 
-                    "RESTful API", "GraphQL开发", "微服务架构", "服务器端渲染", "静态网站生成", 
-                    "渐进式Web应用", "单页面应用", "多页面应用", "网站性能优化", "网站安全加固"
-                ]
-            },
-            "mobile": {
-                name: "移动应用",
-                keywords: [
-                    "iOS应用开发", "Android应用开发", "React Native开发", "Flutter开发", 
-                    "Xamarin开发", "Ionic开发", "混合应用开发", "原生应用开发", "移动UI设计", 
-                    "移动UX设计", "应用商店优化", "移动应用测试", "跨平台开发", "Swift开发", 
-                    "Kotlin开发", "Java Android开发", "Objective-C开发", "移动游戏开发", 
-                    "AR移动应用", "VR移动应用", "移动支付集成", "推送通知", "移动分析", 
-                    "移动安全", "离线应用开发", "移动数据库", "移动API集成", "移动性能优化"
-                ]
-            },
-            "cloud": {
-                name: "云计算",
-                keywords: [
-                    "AWS云服务", "Azure云平台", "Google云平台", "阿里云服务", "腾讯云服务", 
-                    "华为云服务", "云服务器部署", "云存储解决方案", "云数据库管理", "云迁移服务", 
-                    "云计算架构", "云安全服务", "云监控管理", "容器化部署", "Docker容器", 
-                    "Kubernetes编排", "Serverless架构", "云函数计算", "云原生开发", "多云策略", 
-                    "混合云部署", "私有云建设", "公有云管理", "云成本优化", "云灾备方案", 
-                    "云网络架构", "云负载均衡", "云CDN加速", "云DNS管理", "云身份认证"
-                ]
-            },
-            "ai": {
-                name: "人工智能",
-                keywords: [
-                    "机器学习", "深度学习", "自然语言处理", "计算机视觉", "语音识别", 
-                    "图像识别", "预测分析", "推荐系统", "聊天机器人", "智能客服", 
-                    "AI算法开发", "神经网络", "TensorFlow开发", "PyTorch开发", "Keras开发", 
-                    "scikit-learn开发", "数据挖掘", "模式识别", "AI模型训练", "AI模型部署", 
-                    "强化学习", "生成对抗网络", "AI内容生成", "AI数据分析", "AI自动化", 
-                    "AI优化算法", "AI决策系统", "AI边缘计算", "AI芯片优化", "AI伦理与安全"
-                ]
-            },
-            "data": {
-                name: "数据分析",
-                keywords: [
-                    "大数据分析", "数据可视化", "数据仓库建设", "数据湖架构", "ETL开发", 
-                    "数据清洗", "数据挖掘", "统计分析", "业务智能", "数据报表开发", 
-                    "仪表板设计", "预测建模", "数据科学", "Python数据分析", "R语言分析", 
-                    "SQL数据分析", "NoSQL数据库", "Hadoop生态", "Spark开发", "数据管道", 
-                    "实时数据分析", "批处理分析", "A/B测试分析", "用户行为分析", "数据治理", 
-                    "数据安全", "数据隐私保护", "数据质量管理", "主数据管理", "数据策略咨询"
-                ]
-            },
-            "security": {
-                name: "网络安全",
-                keywords: [
-                    "网络安全评估", "渗透测试", "漏洞扫描", "安全审计", "防火墙配置", 
-                    "入侵检测", "数据加密", "SSL/TLS证书", "网络安全监控", "安全事件响应", 
-                    "身份和访问管理", "多因素认证", "安全合规", "GDPR合规", "HIPAA合规", 
-                    "PCI DSS合规", "SOC2认证", "ISO27001认证", "Web应用安全", "移动应用安全", 
-                    "云安全", "端点安全", "网络安全架构", "安全培训", "威胁情报", 
-                    "恶意软件分析", "安全编码实践", "安全测试", "灾难恢复计划", "业务连续性"
-                ]
-            },
-            "devops": {
-                name: "DevOps",
-                keywords: [
-                    "持续集成", "持续交付", "持续部署", "自动化测试", "自动化部署", 
-                    "基础设施即代码", "配置管理", "容器编排", "监控告警", "日志管理", 
-                    "性能监控", "应用性能管理", "DevOps文化", "敏捷开发", "Scrum管理", 
-                    "看板方法", "版本控制", "Git管理", "代码审查", "代码质量", 
-                    "测试自动化", "部署自动化", "环境管理", "发布管理", "容量规划", 
-                    "成本优化", "团队协作", "流程优化", "工具链集成", "微服务部署"
-                ]
-            },
-            "ecommerce": {
-                name: "电子商务",
-                keywords: [
-                    "电商平台开发", "在线商店设计", "购物车系统", "支付网关集成", "库存管理", 
-                    "订单处理系统", "客户管理系统", "营销自动化", "个性化推荐", "电商数据分析", 
-                    "多渠道销售", "跨境电商", "移动电商", "社交电商", "直播电商", 
-                    "会员管理系统", "促销管理", "优惠券系统", "物流跟踪", "退货处理", 
-                    "产品目录管理", "商品推荐引擎", "价格优化", "库存优化", "供应链管理", 
-                    "电商SEO", "电商SEM", "转化率优化", "客户忠诚度计划", "电商安全"
-                ]
-            }
-        };
+        // 200+关键词数据（全部堆砌在一起）
+        const allKeywords = [
+            // 网站开发
+            "前端开发", "后端开发", "全栈开发", "响应式设计", "用户体验设计", "用户界面设计", 
+            "HTML5开发", "CSS3样式", "JavaScript编程", "TypeScript开发", "React开发", 
+            "Vue.js开发", "Angular开发", "Node.js开发", "PHP开发", "Python Web开发", 
+            "Ruby on Rails", "Java Web开发", ".NET开发", "WordPress开发", "Drupal开发", 
+            "Joomla开发", "Magento开发", "Shopify开发", "WooCommerce开发", "API开发", 
+            "RESTful API", "GraphQL开发", "微服务架构", "服务器端渲染", "静态网站生成", 
+            "渐进式Web应用", "单页面应用", "多页面应用", "网站性能优化", "网站安全加固",
+            
+            // 移动应用
+            "iOS应用开发", "Android应用开发", "React Native开发", "Flutter开发", 
+            "Xamarin开发", "Ionic开发", "混合应用开发", "原生应用开发", "移动UI设计", 
+            "移动UX设计", "应用商店优化", "移动应用测试", "跨平台开发", "Swift开发", 
+            "Kotlin开发", "Java Android开发", "Objective-C开发", "移动游戏开发", 
+            "AR移动应用", "VR移动应用", "移动支付集成", "推送通知", "移动分析", 
+            "移动安全", "离线应用开发", "移动数据库", "移动API集成", "移动性能优化",
+            
+            // 云计算
+            "AWS云服务", "Azure云平台", "Google云平台", "阿里云服务", "腾讯云服务", 
+            "华为云服务", "云服务器部署", "云存储解决方案", "云数据库管理", "云迁移服务", 
+            "云计算架构", "云安全服务", "云监控管理", "容器化部署", "Docker容器", 
+            "Kubernetes编排", "Serverless架构", "云函数计算", "云原生开发", "多云策略", 
+            "混合云部署", "私有云建设", "公有云管理", "云成本优化", "云灾备方案", 
+            "云网络架构", "云负载均衡", "云CDN加速", "云DNS管理", "云身份认证",
+            
+            // 人工智能
+            "机器学习", "深度学习", "自然语言处理", "计算机视觉", "语音识别", 
+            "图像识别", "预测分析", "推荐系统", "聊天机器人", "智能客服", 
+            "AI算法开发", "神经网络", "TensorFlow开发", "PyTorch开发", "Keras开发", 
+            "scikit-learn开发", "数据挖掘", "模式识别", "AI模型训练", "AI模型部署", 
+            "强化学习", "生成对抗网络", "AI内容生成", "AI数据分析", "AI自动化", 
+            "AI优化算法", "AI决策系统", "AI边缘计算", "AI芯片优化", "AI伦理与安全",
+            
+            // 数据分析
+            "大数据分析", "数据可视化", "数据仓库建设", "数据湖架构", "ETL开发", 
+            "数据清洗", "数据挖掘", "统计分析", "业务智能", "数据报表开发", 
+            "仪表板设计", "预测建模", "数据科学", "Python数据分析", "R语言分析", 
+            "SQL数据分析", "NoSQL数据库", "Hadoop生态", "Spark开发", "数据管道", 
+            "实时数据分析", "批处理分析", "A/B测试分析", "用户行为分析", "数据治理", 
+            "数据安全", "数据隐私保护", "数据质量管理", "主数据管理", "数据策略咨询",
+            
+            // 网络安全
+            "网络安全评估", "渗透测试", "漏洞扫描", "安全审计", "防火墙配置", 
+            "入侵检测", "数据加密", "SSL/TLS证书", "网络安全监控", "安全事件响应", 
+            "身份和访问管理", "多因素认证", "安全合规", "GDPR合规", "HIPAA合规", 
+            "PCI DSS合规", "SOC2认证", "ISO27001认证", "Web应用安全", "移动应用安全", 
+            "云安全", "端点安全", "网络安全架构", "安全培训", "威胁情报", 
+            "恶意软件分析", "安全编码实践", "安全测试", "灾难恢复计划", "业务连续性",
+            
+            // DevOps
+            "持续集成", "持续交付", "持续部署", "自动化测试", "自动化部署", 
+            "基础设施即代码", "配置管理", "容器编排", "监控告警", "日志管理", 
+            "性能监控", "应用性能管理", "DevOps文化", "敏捷开发", "Scrum管理", 
+            "看板方法", "版本控制", "Git管理", "代码审查", "代码质量", 
+            "测试自动化", "部署自动化", "环境管理", "发布管理", "容量规划", 
+            "成本优化", "团队协作", "流程优化", "工具链集成", "微服务部署",
+            
+            // 电子商务
+            "电商平台开发", "在线商店设计", "购物车系统", "支付网关集成", "库存管理", 
+            "订单处理系统", "客户管理系统", "营销自动化", "个性化推荐", "电商数据分析", 
+            "多渠道销售", "跨境电商", "移动电商", "社交电商", "直播电商", 
+            "会员管理系统", "促销管理", "优惠券系统", "物流跟踪", "退货处理", 
+            "产品目录管理", "商品推荐引擎", "价格优化", "库存优化", "供应链管理", 
+            "电商SEO", "电商SEM", "转化率优化", "客户忠诚度计划", "电商安全"
+        ];
 
-        // 存储已选择的关键词
-        let selectedKeywords = [];
-        
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
-            // 从URL参数中读取已选择的关键词
-            const urlParams = new URLSearchParams(window.location.search);
-            const keywordsParam = urlParams.get('keywords');
-            if (keywordsParam) {
-                selectedKeywords = keywordsParam.split(',').filter(k => k);
-            }
-            
-            // 渲染所有关键词
-            renderKeywords();
-            
-            // 生成分类过滤器
-            renderCategoryFilter();
-            
-            // 更新UI
-            updateUI();
-            
-            // 绑定事件监听器
-            document.getElementById('keyword-search').addEventListener('input', filterKeywords);
-            document.getElementById('max-url-length').addEventListener('input', function() {
-                document.getElementById('max-length-value').textContent = this.value + ' 字符';
-            });
-            
-            // 更新统计信息
-            updateStats();
+            // 生成完整URL
+            generateFullURL();
         });
         
-        // 渲染关键词网格
-        function renderKeywords(filterCategory = 'all') {
-            const keywordGrid = document.getElementById('keyword-grid');
-            keywordGrid.innerHTML = '';
-            
-            let totalKeywords = 0;
-            
-            Object.keys(keywordCategories).forEach(categoryId => {
-                const category = keywordCategories[categoryId];
-                
-                // 如果指定了分类且不是"全部"，则跳过其他分类
-                if (filterCategory !== 'all' && filterCategory !== categoryId) {
-                    return;
-                }
-                
-                category.keywords.forEach(keyword => {
-                    totalKeywords++;
-                    const isActive = selectedKeywords.includes(keyword);
-                    
-                    const keywordElement = document.createElement('div');
-                    keywordElement.className = `keyword-item ${isActive ? 'active' : ''}`;
-                    keywordElement.innerHTML = `
-                        <div>
-                            <div class="keyword-text">${keyword}</div>
-                            <div class="keyword-category">${category.name}</div>
-                        </div>
-                        <div>${isActive ? '✓' : '+'}</div>
-                    `;
-                    
-                    keywordElement.addEventListener('click', () => toggleKeyword(keyword));
-                    keywordGrid.appendChild(keywordElement);
-                });
-            });
-            
-            // 更新总关键词数量
-            document.getElementById('total-keywords').textContent = totalKeywords;
-        }
-        
-        // 渲染分类过滤器
-        function renderCategoryFilter() {
-            const categoryFilter = document.getElementById('category-filter');
-            categoryFilter.innerHTML = '';
-            
-            // 添加"全部"选项
-            const allButton = document.createElement('button');
-            allButton.className = 'cat-btn active';
-            allButton.textContent = '全部';
-            allButton.addEventListener('click', () => {
-                document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-                allButton.classList.add('active');
-                renderKeywords('all');
-            });
-            categoryFilter.appendChild(allButton);
-            
-            // 添加各个分类
-            Object.keys(keywordCategories).forEach(categoryId => {
-                const category = keywordCategories[categoryId];
-                const catButton = document.createElement('button');
-                catButton.className = 'cat-btn';
-                catButton.textContent = category.name;
-                catButton.addEventListener('click', () => {
-                    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-                    catButton.classList.add('active');
-                    renderKeywords(categoryId);
-                });
-                categoryFilter.appendChild(catButton);
-            });
-            
-            // 更新分类数量统计
-            document.getElementById('category-count').textContent = Object.keys(keywordCategories).length;
-        }
-        
-        // 切换关键词选择状态
-        function toggleKeyword(keyword) {
-            const index = selectedKeywords.indexOf(keyword);
-            if (index === -1) {
-                selectedKeywords.push(keyword);
-            } else {
-                selectedKeywords.splice(index, 1);
-            }
-            
-            updateUI();
-            updateStats();
-        }
-        
-        // 过滤关键词
-        function filterKeywords() {
-            const searchTerm = document.getElementById('keyword-search').value.toLowerCase();
-            const keywordItems = document.querySelectorAll('.keyword-item');
-            
-            keywordItems.forEach(item => {
-                const keywordText = item.querySelector('.keyword-text').textContent.toLowerCase();
-                const categoryText = item.querySelector('.keyword-category').textContent.toLowerCase();
-                
-                if (keywordText.includes(searchTerm) || categoryText.includes(searchTerm)) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-        
-        // 更新UI显示
-        function updateUI() {
-            // 更新已选择的关键词显示
-            const selectedContainer = document.getElementById('selected-keywords');
-            selectedContainer.innerHTML = '';
-            
-            selectedKeywords.forEach(keyword => {
-                const selectedItem = document.createElement('div');
-                selectedItem.className = 'selected-item';
-                selectedItem.innerHTML = `
-                    ${keyword}
-                    <span class="remove" onclick="removeKeyword('${keyword}')">×</span>
-                `;
-                selectedContainer.appendChild(selectedItem);
-            });
-            
-            if (selectedKeywords.length === 0) {
-                selectedContainer.innerHTML = '<div style="text-align:center;color:#999;">尚未选择任何关键词</div>';
-            }
-            
-            // 更新已选择数量
-            document.getElementById('selected-count').textContent = selectedKeywords.length;
-            
-            // 更新URL显示
-            updateURLDisplay();
-            
-            // 更新所有关键词项的激活状态
-            document.querySelectorAll('.keyword-item').forEach(item => {
-                const keywordText = item.querySelector('.keyword-text').textContent;
-                if (selectedKeywords.includes(keywordText)) {
-                    item.classList.add('active');
-                    item.querySelector('div:last-child').textContent = '✓';
-                } else {
-                    item.classList.remove('active');
-                    item.querySelector('div:last-child').textContent = '+';
-                }
-            });
-        }
-        
-        // 移除关键词
-        function removeKeyword(keyword) {
-            const index = selectedKeywords.indexOf(keyword);
-            if (index !== -1) {
-                selectedKeywords.splice(index, 1);
-                updateUI();
-                updateStats();
-            }
-        }
-        
-        // 清空所有关键词
-        function clearAllKeywords() {
-            selectedKeywords = [];
-            updateUI();
-            updateStats();
-        }
-        
-        // 随机选择关键词
-        function selectRandomKeywords(count) {
-            // 收集所有关键词
-            let allKeywords = [];
-            Object.keys(keywordCategories).forEach(categoryId => {
-                allKeywords = allKeywords.concat(keywordCategories[categoryId].keywords);
-            });
-            
-            // 随机选择指定数量的关键词
-            const shuffled = [...allKeywords].sort(() => 0.5 - Math.random());
-            selectedKeywords = shuffled.slice(0, Math.min(count, shuffled.length));
-            
-            updateUI();
-            updateStats();
-        }
-        
-        // 生成URL参数
-        function generateURL() {
-            const maxLength = parseInt(document.getElementById('max-url-length').value);
-            
-            // 如果URL可能太长，截断关键词列表
-            let keywordsToUse = [...selectedKeywords];
-            let url = buildURL(keywordsToUse);
-            
-            while (url.length > maxLength && keywordsToUse.length > 0) {
-                keywordsToUse.pop(); // 移除最后一个关键词
-                url = buildURL(keywordsToUse);
-            }
-            
-            // 更新浏览器URL
-            const params = new URLSearchParams();
-            if (keywordsToUse.length > 0) {
-                params.set('keywords', keywordsToUse.join(','));
-            }
-            
-            const newUrl = params.toString() 
-                ? `${window.location.pathname}?${params.toString()}`
-                : window.location.pathname;
-            
-            window.history.replaceState(null, '', newUrl);
+        // 生成完整URL
+        function generateFullURL() {
+            const keywordsString = allKeywords.join(',');
+            const baseUrl = window.location.origin + window.location.pathname;
+            const fullUrl = baseUrl + '?keywords=' + encodeURIComponent(keywordsString);
             
             // 更新显示
-            selectedKeywords = keywordsToUse;
-            updateUI();
-            updateStats();
-            
-            // 显示通知
-            showNotification('URL已更新！');
-        }
-        
-        // 构建URL字符串
-        function buildURL(keywords) {
-            const params = new URLSearchParams();
-            if (keywords.length > 0) {
-                params.set('keywords', keywords.join(','));
-            }
-            
-            return window.location.origin + window.location.pathname + 
-                   (keywords.length > 0 ? `?${params.toString()}` : '');
-        }
-        
-        // 更新URL显示
-        function updateURLDisplay() {
             const urlDisplay = document.getElementById('url-display');
-            const fullUrl = buildURL(selectedKeywords);
             urlDisplay.textContent = fullUrl;
             
-            // 更新URL长度统计
+            // 更新统计信息
+            document.getElementById('keyword-count').textContent = allKeywords.length;
             document.getElementById('url-length').textContent = fullUrl.length;
-        }
-        
-        // 更新统计信息
-        function updateStats() {
-            document.getElementById('selected-count').textContent = selectedKeywords.length;
-            
-            const fullUrl = buildURL(selectedKeywords);
-            document.getElementById('url-length').textContent = fullUrl.length;
-            
-            // 计算总关键词数
-            let totalKeywords = 0;
-            Object.keys(keywordCategories).forEach(categoryId => {
-                totalKeywords += keywordCategories[categoryId].keywords.length;
-            });
-            document.getElementById('total-keywords').textContent = totalKeywords;
+            document.getElementById('category-count').textContent = 8; // 8个分类
         }
         
         // 复制URL到剪贴板
         function copyURL() {
-            const url = buildURL(selectedKeywords);
+            const urlDisplay = document.getElementById('url-display');
+            const url = urlDisplay.textContent;
+            
             navigator.clipboard.writeText(url).then(() => {
-                showNotification('URL已复制到剪贴板！');
+                showNotification('完整URL已复制到剪贴板！');
             });
-        }
-        
-        // 分享到Twitter
-        function shareOnTwitter() {
-            const url = encodeURIComponent(buildURL(selectedKeywords));
-            const text = encodeURIComponent(`查看我们的专业技术解决方案：${selectedKeywords.slice(0, 3).join('、')}...`);
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-        }
-        
-        // 分享到LinkedIn
-        function shareOnLinkedIn() {
-            const url = encodeURIComponent(buildURL(selectedKeywords));
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
         }
         
         // 显示通知
