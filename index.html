@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>关键词URL生成器</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
             line-height: 1.6; 
@@ -14,45 +18,303 @@
             min-height: 100vh;
             padding: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            text-align: center;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             width: 100%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-top: 20px;
         }
         .title {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             font-weight: 300;
             color: #2c3e50;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            text-align: center;
             letter-spacing: 1px;
         }
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #7f8c8d;
             font-weight: 300;
+            text-align: center;
+            margin-bottom: 30px;
             letter-spacing: 0.5px;
         }
-        footer {
-            position: fixed;
-            bottom: 20px;
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        .input-field {
             width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        .hint {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        .button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+        .button:active {
+            transform: translateY(1px);
+        }
+        .result-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        .result-title {
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .url-display {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            margin-bottom: 15px;
+        }
+        .copy-button {
+            background-color: #2ecc71;
+            margin-left: 10px;
+        }
+        .copy-button:hover {
+            background-color: #27ae60;
+        }
+        .hidden-params {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #fff8e1;
+            border-radius: 5px;
+            border: 1px dashed #ffb300;
+        }
+        .hidden-params h4 {
+            color: #f57c00;
+            margin-bottom: 10px;
+        }
+        .param-list {
+            list-style-type: none;
+        }
+        .param-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ffeaa7;
+        }
+        footer {
+            margin-top: 40px;
             text-align: center;
             color: #95a5a6;
             font-size: 0.85rem;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.2rem;
+            }
+            .container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="title">关键词URL生成器</div>
+    <div class="subtitle">专业技术服务关键词URL参数生成工具</div>
+    
     <div class="container">
-        <div class="title">关键词URL生成器</div>
-        <div class="subtitle">专业技术服务关键词URL参数生成工具</div>
+        <div class="form-group">
+            <label for="keywords">输入关键词（多个关键词用逗号分隔）</label>
+            <input type="text" id="keywords" class="input-field" placeholder="例如：前端开发,UI设计,JavaScript,React">
+            <div class="hint">请输入一个或多个关键词，用逗号分隔</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="baseUrl">基础URL</label>
+            <input type="text" id="baseUrl" class="input-field" value="https://example.com/page">
+            <div class="hint">这是生成URL的基础部分</div>
+        </div>
+        
+        <button id="generateBtn" class="button">生成URL</button>
+        
+        <div id="resultSection" class="result-container" style="display: none;">
+            <div class="result-title">生成的URL：</div>
+            <div id="generatedUrl" class="url-display"></div>
+            <div>
+                <button id="copyBtn" class="button copy-button">复制URL</button>
+                <a id="openLink" href="#" target="_blank" style="text-decoration: none;">
+                    <button class="button">打开URL</button>
+                </a>
+            </div>
+            
+            <div id="paramsInfo" class="hidden-params" style="display: none;">
+                <h4>URL中的隐藏参数：</h4>
+                <ul id="paramList" class="param-list">
+                    <!-- 参数列表将通过JS动态生成 -->
+                </ul>
+                <div style="margin-top: 10px; font-size: 0.9rem; color: #7f8c8d;">
+                    提示：此URL包含隐藏参数，当用户访问时参数会被自动隐藏
+                </div>
+            </div>
+        </div>
     </div>
     
     <footer>
         <p>© 2024 关键词URL生成器 | 内部数据处理工具</p>
     </footer>
+
+    <script>
+        // 页面加载时检查URL参数
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取当前URL中的参数
+            const urlParams = new URLSearchParams(window.location.search);
+            const encodedKeywords = urlParams.get('k');
+            
+            if (encodedKeywords) {
+                // 解码关键词
+                const keywords = decodeURIComponent(encodedKeywords).split(',');
+                
+                // 显示隐藏参数信息
+                document.getElementById('paramsInfo').style.display = 'block';
+                const paramList = document.getElementById('paramList');
+                paramList.innerHTML = '';
+                
+                keywords.forEach(keyword => {
+                    if (keyword.trim()) {
+                        const li = document.createElement('li');
+                        li.textContent = `关键词: ${keyword.trim()}`;
+                        paramList.appendChild(li);
+                    }
+                });
+                
+                // 清除URL参数（隐藏参数）
+                window.history.replaceState({}, document.title, window.location.pathname);
+                
+                // 将关键词填入输入框，方便用户看到
+                document.getElementById('keywords').value = keywords.join(', ');
+            }
+        });
+        
+        // 生成URL按钮点击事件
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            const keywordsInput = document.getElementById('keywords').value;
+            const baseUrlInput = document.getElementById('baseUrl').value;
+            
+            if (!keywordsInput.trim()) {
+                alert('请输入至少一个关键词');
+                return;
+            }
+            
+            if (!baseUrlInput.trim()) {
+                alert('请输入基础URL');
+                return;
+            }
+            
+            // 处理关键词：分割、去空格、过滤空值
+            const keywords = keywordsInput.split(',')
+                .map(keyword => keyword.trim())
+                .filter(keyword => keyword.length > 0);
+            
+            if (keywords.length === 0) {
+                alert('请输入有效的关键词');
+                return;
+            }
+            
+            // 编码关键词
+            const encodedKeywords = encodeURIComponent(keywords.join(','));
+            
+            // 生成带参数的URL
+            const separator = baseUrlInput.includes('?') ? '&' : '?';
+            const generatedUrl = `${baseUrlInput}${separator}k=${encodedKeywords}`;
+            
+            // 显示生成的URL
+            document.getElementById('generatedUrl').textContent = generatedUrl;
+            document.getElementById('resultSection').style.display = 'block';
+            
+            // 设置打开链接
+            document.getElementById('openLink').href = generatedUrl;
+            
+            // 显示隐藏参数信息
+            document.getElementById('paramsInfo').style.display = 'block';
+            const paramList = document.getElementById('paramList');
+            paramList.innerHTML = '';
+            
+            keywords.forEach(keyword => {
+                const li = document.createElement('li');
+                li.textContent = `关键词: ${keyword}`;
+                paramList.appendChild(li);
+            });
+        });
+        
+        // 复制URL按钮点击事件
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            const urlToCopy = document.getElementById('generatedUrl').textContent;
+            
+            navigator.clipboard.writeText(urlToCopy).then(function() {
+                const originalText = this.textContent;
+                this.textContent = '已复制!';
+                this.style.backgroundColor = '#27ae60';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.backgroundColor = '#2ecc71';
+                }, 2000);
+            }.bind(this)).catch(function(err) {
+                console.error('复制失败: ', err);
+                alert('复制失败，请手动复制URL');
+            });
+        });
+        
+        // 示例按钮（可选功能）
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加示例按钮
+            const exampleBtn = document.createElement('button');
+            exampleBtn.textContent = '加载示例';
+            exampleBtn.className = 'button';
+            exampleBtn.style.backgroundColor = '#9b59b6';
+            exampleBtn.style.marginLeft = '10px';
+            exampleBtn.addEventListener('click', function() {
+                document.getElementById('keywords').value = '网页设计,前端开发,JavaScript,CSS框架';
+                document.getElementById('baseUrl').value = 'https://myservice.com/tools';
+            });
+            
+            document.getElementById('generateBtn').parentNode.appendChild(exampleBtn);
+        });
+    </script>
 </body>
 </html>
