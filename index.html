@@ -30,9 +30,29 @@
             <section class="demo-links">
                 <h2>示例链接</h2>
                 <div class="links-grid">
-                    <a href="/demo-keyword1-keyword2-keyword3" class="demo-link">示例链接 1</a>
-                    <a href="/test-seo-optimization-keywords-stacking" class="demo-link">示例链接 2</a>
-                    <a href="/example-url-rewrite-keyword-parsing-demo" class="demo-link">示例链接 3</a>
+                    <a href="/demo-keyword1-keyword2-keyword3" class="demo-link">示例链接 1 (3个关键词)</a>
+                    <a href="/test-seo-optimization-keywords-stacking" class="demo-link">示例链接 2 (5个关键词)</a>
+                    <a href="/example-url-rewrite-keyword-parsing-demo" class="demo-link">示例链接 3 (6个关键词)</a>
+                    <a href="/web-development-frontend-backend-javascript-typescript-react-vue-angular-nodejs-express-mongodb-mysql-postgresql-redis-docker-kubernetes-aws-azure-gcp-ci-cd-git-github-gitlab-api-rest-graphql-microservices-serverless-lambda-cloud-computing-devops-agile-scrum-html-css-sass-less-bootstrap-tailwind-webpack-vite-npm-yarn-pnpm-jest-cypress-selenium-testing-unit-integration-e2e-performance-optimization-seo-accessibility-responsive-mobile-desktop-tablet-progressive-web-app-spa-ssr-ssg-cms-headless-jamstack-server-side-client-side-fullstack-mean-mern-mevn-lamp-lemp-php-python-java-csharp-ruby-go-rust-swift-kotlin-dart-flutter-react-native-ionic-cordova-xamarin-native-hybrid-cross-platform" class="demo-link long-link">超长关键词路径 (100+关键词)</a>
+                </div>
+            </section>
+
+            <section class="url-generator">
+                <h2>关键词URL生成器</h2>
+                <div class="generator-box">
+                    <textarea id="keywordInput" placeholder="输入关键词，用空格或逗号分隔，例如：web development javascript react vue angular"></textarea>
+                    <div class="generator-controls">
+                        <button id="generateBtn" class="generate-btn">生成URL</button>
+                        <button id="copyBtn" class="copy-btn">复制URL</button>
+                        <button id="loadExampleBtn" class="example-btn">加载示例关键词</button>
+                    </div>
+                    <div class="generated-url-box">
+                        <label>生成的URL:</label>
+                        <div class="url-output" id="generatedUrl"></div>
+                    </div>
+                    <div class="preview-link">
+                        <a href="#" id="previewLink" class="preview-link-btn" target="_blank">预览链接</a>
+                    </div>
                 </div>
             </section>
 

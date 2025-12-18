@@ -1,0 +1,23 @@
+# 包含大量关键词的URL示例
+
+以下是一些包含大量关键词的URL路径示例，可以直接复制使用：
+
+## 示例1: 技术栈关键词 (100+关键词)
+/web-development-frontend-backend-javascript-typescript-react-vue-angular-nodejs-express-mongodb-mysql-postgresql-redis-docker-kubernetes-aws-azure-gcp-ci-cd-git-github-gitlab-api-rest-graphql-microservices-serverless-lambda-cloud-computing-devops-agile-scrum-html-css-sass-less-bootstrap-tailwind-webpack-vite-npm-yarn-pnpm-jest-cypress-selenium-testing-unit-integration-e2e-performance-optimization-seo-accessibility-responsive-mobile-desktop-tablet-progressive-web-app-spa-ssr-ssg-cms-headless-jamstack-server-side-client-side-fullstack-mean-mern-mevn-lamp-lemp-php-python-java-csharp-ruby-go-rust-swift-kotlin-dart-flutter-react-native-ionic-cordova-xamarin-native-hybrid-cross-platform
+
+## 示例2: 设计与开发关键词 (80+关键词)
+/ui-ux-design-figma-sketch-adobe-xd-prototyping-wireframing-user-experience-interface-design-system-component-library-framework-architecture-pattern-mvc-mvp-mvvm-clean-code-refactoring-debugging-logging-monitoring-analytics-security-authentication-authorization-encryption-ssl-tls-https-oauth-jwt-session-cookie-cache-cdn-load-balancing-scalability-reliability-availability-disaster-recovery-backup-version-control-merge-conflict-branch-pull-request-code-review-continuous-integration-deployment-automation-scripting-bash-powershell-cli-terminal-command-line-ide-editor-vscode-sublime-atom-vim-emacs
+
+## 示例3: 完整技术栈 (150+关键词)
+/web-development-frontend-backend-fullstack-javascript-typescript-react-vue-angular-svelte-nextjs-nuxtjs-gatsby-remix-nodejs-express-fastify-koa-nestjs-mongodb-mysql-postgresql-sqlite-redis-elasticsearch-docker-kubernetes-helm-terraform-ansible-aws-azure-gcp-digitalocean-heroku-netlify-vercel-ci-cd-jenkins-github-actions-gitlab-ci-circleci-travis-git-github-gitlab-bitbucket-api-rest-graphql-grpc-microservices-serverless-lambda-functions-cloud-computing-devops-sre-agile-scrum-kanban-html-css-sass-less-stylus-bootstrap-tailwind-material-ui-ant-design-webpack-vite-rollup-parcel-npm-yarn-pnpm-jest-mocha-chai-cypress-playwright-selenium-testing-unit-integration-e2e-performance-optimization-seo-accessibility-responsive-mobile-desktop-tablet-progressive-web-app-spa-ssr-ssg-cms-headless-jamstack-server-side-client-side-mean-mern-mevn-lamp-lemp-php-python-java-csharp-ruby-go-rust-swift-kotlin-dart-flutter-react-native-ionic-cordova-xamarin-native-hybrid-cross-platform-electron-tauri
+
+## 使用方法
+1. 复制上述任意一个URL路径
+2. 在浏览器地址栏中输入: http://your-domain.com/[复制的路径]
+3. 页面会自动解析并显示所有关键词
+
+## 注意事项
+- URL长度限制：大多数浏览器和服务器对URL长度有限制（通常2048字符）
+- 关键词数量：建议不超过200个关键词，以确保URL可正常访问
+- 分隔符：使用连字符(-)分隔关键词，这是SEO友好的做法
+
