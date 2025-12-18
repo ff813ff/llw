@@ -16,279 +16,43 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
         }
         .container {
-            max-width: 800px;
+            max-width: 600px;
             width: 100%;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            overflow: hidden;
         }
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        h1 { 
-            font-size: 1.8rem; 
-            margin-bottom: 10px;
-        }
-        .content {
-            padding: 30px;
-        }
-        .input-box {
-            margin-bottom: 20px;
-        }
-        .input-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
+        .title {
+            font-size: 3.5rem;
+            font-weight: 300;
             color: #2c3e50;
-        }
-        .keyword-input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-family: inherit;
-            resize: vertical;
-            min-height: 120px;
-        }
-        .keyword-input:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-        .url-display {
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            word-break: break-all;
-            font-size: 0.9rem;
-            margin: 20px 0;
-            line-height: 1.5;
-            cursor: pointer;
-            border: 2px solid #3498db;
-        }
-        .url-display:hover {
-            background: #1a252f;
-        }
-        .action-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.1rem;
-            background: #3498db;
-            color: white;
-            transition: all 0.3s;
-        }
-        .action-btn:hover {
-            background: #2980b9;
-        }
-        .action-btn.secondary {
-            background: #95a5a6;
-        }
-        .action-btn.secondary:hover {
-            background: #7f8c8d;
-        }
-        .stats {
-            display: flex;
-            justify-content: space-between;
-            background: #f1f3f4;
-            padding: 15px;
-            border-radius: 6px;
             margin-bottom: 20px;
+            letter-spacing: 1px;
         }
-        .stat-item {
-            text-align: center;
-        }
-        .stat-value {
+        .subtitle {
             font-size: 1.2rem;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .stat-label {
-            font-size: 0.8rem;
-            color: #666;
+            color: #7f8c8d;
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
         footer {
-            text-align: center;
-            padding: 15px;
-            background: #f8f9fa;
-            border-top: 1px solid #e9ecef;
-            color: #666;
-            font-size: 0.85rem;
-        }
-        .notification {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #27ae60;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 6px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            display: none;
-            z-index: 1000;
-        }
-        .tip {
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: #95a5a6;
             font-size: 0.85rem;
-            color: #666;
-            margin-top: 8px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>关键词URL生成器</h1>
-        </header>
-        
-        <div class="content">
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-value" id="keyword-count">0</div>
-                    <div class="stat-label">关键词数量</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="url-length">0</div>
-                    <div class="stat-label">URL长度</div>
-                </div>
-            </div>
-            
-            <div class="input-box">
-                <label class="input-label">输入关键词（用-号分隔）</label>
-                <textarea 
-                    class="keyword-input" 
-                    id="keyword-input" 
-                    placeholder="例如：前端开发-后端开发-移动应用-云计算-人工智能-数据分析-网络安全-DevOps-电商开发-用户体验"
-                ></textarea>
-                <div class="tip">输入关键词，用-号分隔，系统将自动生成对应的URL参数</div>
-            </div>
-            
-            <button class="action-btn" onclick="generateURL()">生成URL</button>
-            <button class="action-btn secondary" onclick="clearInput()">清空输入</button>
-            
-            <h3 style="margin-top: 30px; margin-bottom: 10px;">生成的URL：</h3>
-            <div class="url-display" id="url-display">
-                输入关键词后点击"生成URL"按钮
-            </div>
-            
-            <button class="action-btn" onclick="copyURL()">复制URL</button>
-        </div>
-        
-        <footer>
-            <p>© 2024 关键词URL生成器</p>
-        </footer>
+        <div class="title">关键词URL生成器</div>
+        <div class="subtitle">专业技术服务关键词URL参数生成工具</div>
     </div>
     
-    <div class="notification" id="notification">已复制到剪贴板！</div>
-
-    <script>
-        // 初始化页面
-        document.addEventListener('DOMContentLoaded', function() {
-            // 绑定输入事件
-            document.getElementById('keyword-input').addEventListener('input', updateStats);
-        });
-        
-        // 更新统计信息
-        function updateStats() {
-            const input = document.getElementById('keyword-input').value;
-            const keywords = parseKeywords(input);
-            
-            document.getElementById('keyword-count').textContent = keywords.length;
-            
-            // 更新URL长度（如果有URL）
-            const urlDisplay = document.getElementById('url-display');
-            if (urlDisplay.textContent.includes('?keywords=')) {
-                const url = buildURL(keywords);
-                document.getElementById('url-length').textContent = url.length;
-            }
-        }
-        
-        // 解析关键词输入（使用-号分隔）
-        function parseKeywords(input) {
-            if (!input.trim()) return [];
-            
-            // 按连字符分割，去除空白字符，过滤空值
-            return input.split('-')
-                .map(keyword => keyword.trim())
-                .filter(keyword => keyword.length > 0);
-        }
-        
-        // 生成URL
-        function generateURL() {
-            const input = document.getElementById('keyword-input').value;
-            const keywords = parseKeywords(input);
-            
-            if (keywords.length === 0) {
-                showNotification('请输入至少一个关键词');
-                document.getElementById('url-display').textContent = '请输入至少一个关键词';
-                return;
-            }
-            
-            const url = buildURL(keywords);
-            
-            // 更新显示
-            const urlDisplay = document.getElementById('url-display');
-            urlDisplay.textContent = url;
-            
-            // 更新统计信息
-            document.getElementById('keyword-count').textContent = keywords.length;
-            document.getElementById('url-length').textContent = url.length;
-            
-            showNotification('URL已生成');
-        }
-        
-        // 构建URL（使用-号连接关键词）
-        function buildURL(keywords) {
-            const baseUrl = window.location.origin + window.location.pathname;
-            const keywordsString = keywords.join('-');
-            return baseUrl + '?keywords=' + encodeURIComponent(keywordsString);
-        }
-        
-        // 清空输入
-        function clearInput() {
-            document.getElementById('keyword-input').value = '';
-            document.getElementById('url-display').textContent = '输入关键词后点击"生成URL"按钮';
-            document.getElementById('keyword-count').textContent = '0';
-            document.getElementById('url-length').textContent = '0';
-        }
-        
-        // 复制URL到剪贴板
-        function copyURL() {
-            const urlDisplay = document.getElementById('url-display');
-            const url = urlDisplay.textContent;
-            
-            if (!url.includes('?keywords=')) {
-                showNotification('请先生成URL');
-                return;
-            }
-            
-            navigator.clipboard.writeText(url).then(() => {
-                showNotification('URL已复制到剪贴板！');
-            });
-        }
-        
-        // 显示通知
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.style.display = 'block';
-            
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 3000);
-        }
-    </script>
+    <footer>
+        <p>© 2024 关键词URL生成器 | 内部数据处理工具</p>
+    </footer>
 </body>
 </html>
