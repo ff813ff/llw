@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专业技术服务关键词完整URL</title>
+    <title>专业技术服务关键词精简版</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
@@ -12,13 +12,13 @@
             color: #333; 
             background: #f5f7fa;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .container {
-            max-width: 1000px;
+            max-width: 800px;
             width: 100%;
             background: white;
             border-radius: 10px;
@@ -28,7 +28,7 @@
         header {
             background: #2c3e50;
             color: white;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
         }
         h1 { 
@@ -111,148 +111,95 @@
             display: none;
             z-index: 1000;
         }
-        .note {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 6px;
-            padding: 15px;
+        .keyword-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
             margin: 20px 0;
-            color: #856404;
-            font-size: 0.95rem;
+        }
+        .keyword-item {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>专业技术服务关键词完整URL</h1>
-            <p>200+行业关键词一次性生成</p>
+            <h1>专业技术服务关键词精简版</h1>
+            <p>20个精选关键词直接生成URL</p>
         </header>
         
         <div class="content">
-            <div class="note">
-                注意：此URL包含所有200+个专业技术服务关键词，用于系统内部数据传递和处理，不适用于前端展示。
-            </div>
-            
             <div class="stats">
                 <div class="stat-item">
-                    <div class="stat-value" id="keyword-count">0</div>
+                    <div class="stat-value" id="keyword-count">20</div>
                     <div class="stat-label">关键词总数</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value" id="url-length">0</div>
                     <div class="stat-label">URL长度</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="category-count">0</div>
-                    <div class="stat-label">分类数量</div>
-                </div>
             </div>
             
-            <h3>完整关键词URL</h3>
+            <h3>包含的20个精选关键词：</h3>
+            <div class="keyword-list" id="keyword-list">
+                <!-- 关键词将在这里显示 -->
+            </div>
+            
+            <h3>生成的URL：</h3>
             <div class="url-display" id="url-display">
                 <!-- URL将动态生成在这里 -->
             </div>
             
-            <button class="copy-btn" onclick="copyURL()">复制完整URL到剪贴板</button>
+            <button class="copy-btn" onclick="copyURL()">复制URL到剪贴板</button>
             
-            <div style="margin-top: 30px;">
-                <h3>包含的关键词类别：</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
-                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">网站开发</div>
-                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">移动应用</div>
-                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">云计算</div>
-                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">人工智能</div>
-                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">数据分析</div>
-                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">网络安全</div>
-                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">DevOps</div>
-                    <div style="background: #e3f2fd; color: #1565c0; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">电子商务</div>
-                </div>
+            <div style="margin-top: 30px; font-size: 0.9rem; color: #666; text-align: center;">
+                <p>此URL包含20个专业技术服务关键词，用于系统内部数据处理。</p>
             </div>
         </div>
         
         <footer>
-            <p>© 2024 专业技术服务 | 200+行业关键词完整URL</p>
-            <p style="margin-top: 10px; font-size: 0.85rem;">此URL包含所有关键词，用于系统内部处理</p>
+            <p>© 2024 专业技术服务 | 20个精选关键词URL</p>
         </footer>
     </div>
     
     <div class="notification" id="notification">URL已复制到剪贴板！</div>
 
     <script>
-        // 200+关键词数据（全部堆砌在一起）
+        // 20个精选关键词（不分类，直接堆砌）
         const allKeywords = [
-            // 网站开发
-            "前端开发", "后端开发", "全栈开发", "响应式设计", "用户体验设计", "用户界面设计", 
-            "HTML5开发", "CSS3样式", "JavaScript编程", "TypeScript开发", "React开发", 
-            "Vue.js开发", "Angular开发", "Node.js开发", "PHP开发", "Python Web开发", 
-            "Ruby on Rails", "Java Web开发", ".NET开发", "WordPress开发", "Drupal开发", 
-            "Joomla开发", "Magento开发", "Shopify开发", "WooCommerce开发", "API开发", 
-            "RESTful API", "GraphQL开发", "微服务架构", "服务器端渲染", "静态网站生成", 
-            "渐进式Web应用", "单页面应用", "多页面应用", "网站性能优化", "网站安全加固",
-            
-            // 移动应用
-            "iOS应用开发", "Android应用开发", "React Native开发", "Flutter开发", 
-            "Xamarin开发", "Ionic开发", "混合应用开发", "原生应用开发", "移动UI设计", 
-            "移动UX设计", "应用商店优化", "移动应用测试", "跨平台开发", "Swift开发", 
-            "Kotlin开发", "Java Android开发", "Objective-C开发", "移动游戏开发", 
-            "AR移动应用", "VR移动应用", "移动支付集成", "推送通知", "移动分析", 
-            "移动安全", "离线应用开发", "移动数据库", "移动API集成", "移动性能优化",
-            
-            // 云计算
-            "AWS云服务", "Azure云平台", "Google云平台", "阿里云服务", "腾讯云服务", 
-            "华为云服务", "云服务器部署", "云存储解决方案", "云数据库管理", "云迁移服务", 
-            "云计算架构", "云安全服务", "云监控管理", "容器化部署", "Docker容器", 
-            "Kubernetes编排", "Serverless架构", "云函数计算", "云原生开发", "多云策略", 
-            "混合云部署", "私有云建设", "公有云管理", "云成本优化", "云灾备方案", 
-            "云网络架构", "云负载均衡", "云CDN加速", "云DNS管理", "云身份认证",
-            
-            // 人工智能
-            "机器学习", "深度学习", "自然语言处理", "计算机视觉", "语音识别", 
-            "图像识别", "预测分析", "推荐系统", "聊天机器人", "智能客服", 
-            "AI算法开发", "神经网络", "TensorFlow开发", "PyTorch开发", "Keras开发", 
-            "scikit-learn开发", "数据挖掘", "模式识别", "AI模型训练", "AI模型部署", 
-            "强化学习", "生成对抗网络", "AI内容生成", "AI数据分析", "AI自动化", 
-            "AI优化算法", "AI决策系统", "AI边缘计算", "AI芯片优化", "AI伦理与安全",
-            
-            // 数据分析
-            "大数据分析", "数据可视化", "数据仓库建设", "数据湖架构", "ETL开发", 
-            "数据清洗", "数据挖掘", "统计分析", "业务智能", "数据报表开发", 
-            "仪表板设计", "预测建模", "数据科学", "Python数据分析", "R语言分析", 
-            "SQL数据分析", "NoSQL数据库", "Hadoop生态", "Spark开发", "数据管道", 
-            "实时数据分析", "批处理分析", "A/B测试分析", "用户行为分析", "数据治理", 
-            "数据安全", "数据隐私保护", "数据质量管理", "主数据管理", "数据策略咨询",
-            
-            // 网络安全
-            "网络安全评估", "渗透测试", "漏洞扫描", "安全审计", "防火墙配置", 
-            "入侵检测", "数据加密", "SSL/TLS证书", "网络安全监控", "安全事件响应", 
-            "身份和访问管理", "多因素认证", "安全合规", "GDPR合规", "HIPAA合规", 
-            "PCI DSS合规", "SOC2认证", "ISO27001认证", "Web应用安全", "移动应用安全", 
-            "云安全", "端点安全", "网络安全架构", "安全培训", "威胁情报", 
-            "恶意软件分析", "安全编码实践", "安全测试", "灾难恢复计划", "业务连续性",
-            
-            // DevOps
-            "持续集成", "持续交付", "持续部署", "自动化测试", "自动化部署", 
-            "基础设施即代码", "配置管理", "容器编排", "监控告警", "日志管理", 
-            "性能监控", "应用性能管理", "DevOps文化", "敏捷开发", "Scrum管理", 
-            "看板方法", "版本控制", "Git管理", "代码审查", "代码质量", 
-            "测试自动化", "部署自动化", "环境管理", "发布管理", "容量规划", 
-            "成本优化", "团队协作", "流程优化", "工具链集成", "微服务部署",
-            
-            // 电子商务
-            "电商平台开发", "在线商店设计", "购物车系统", "支付网关集成", "库存管理", 
-            "订单处理系统", "客户管理系统", "营销自动化", "个性化推荐", "电商数据分析", 
-            "多渠道销售", "跨境电商", "移动电商", "社交电商", "直播电商", 
-            "会员管理系统", "促销管理", "优惠券系统", "物流跟踪", "退货处理", 
-            "产品目录管理", "商品推荐引擎", "价格优化", "库存优化", "供应链管理", 
-            "电商SEO", "电商SEM", "转化率优化", "客户忠诚度计划", "电商安全"
+            "前端开发", "后端开发", "全栈开发", "移动应用开发", "云计算架构",
+            "人工智能", "机器学习", "大数据分析", "数据可视化", "网络安全",
+            "DevOps", "持续集成", "自动化测试", "微服务架构", "容器化部署",
+            "电商平台开发", "用户体验设计", "API开发", "数据挖掘", "云原生开发"
         ];
 
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
+            // 显示关键词列表
+            displayKeywords();
+            
             // 生成完整URL
             generateFullURL();
         });
+        
+        // 显示关键词列表
+        function displayKeywords() {
+            const keywordList = document.getElementById('keyword-list');
+            keywordList.innerHTML = '';
+            
+            allKeywords.forEach(keyword => {
+                const keywordElement = document.createElement('div');
+                keywordElement.className = 'keyword-item';
+                keywordElement.textContent = keyword;
+                keywordList.appendChild(keywordElement);
+            });
+        }
         
         // 生成完整URL
         function generateFullURL() {
@@ -267,7 +214,6 @@
             // 更新统计信息
             document.getElementById('keyword-count').textContent = allKeywords.length;
             document.getElementById('url-length').textContent = fullUrl.length;
-            document.getElementById('category-count').textContent = 8; // 8个分类
         }
         
         // 复制URL到剪贴板
@@ -276,7 +222,7 @@
             const url = urlDisplay.textContent;
             
             navigator.clipboard.writeText(url).then(() => {
-                showNotification('完整URL已复制到剪贴板！');
+                showNotification('URL已复制到剪贴板！');
             });
         }
         
