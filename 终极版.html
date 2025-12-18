@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="1:26:59">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/ff813ff/llw/refs/heads/main/po/TryRwjehO0OG5.png">
+        <meta name="twitter:url" content="https://ff813ff.github.io/llw/">
+		<title>暗网资源大放送</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            background: #f5f7fa;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        /* 通用容器样式 */
+        .page-container {
+            max-width: 700px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        /* 第一个页面（URL生成器）的特定样式 */
+        #urlGeneratorPage .title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            padding-top: 40px;
+        }
+        #urlGeneratorPage .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-bottom: 40px;
+        }
+        #urlGeneratorPage .intro-section {
+            padding: 30px;
+        }
+        #urlGeneratorPage .intro-section h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        #urlGeneratorPage .intro-section p {
+            margin-bottom: 15px;
+            text-align: left;
+            line-height: 1.7;
+        }
+        .email-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .email-link:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        /* 第二个页面（暗网资源大放送）的特定样式 */
+        #personalPage .title-section {
+            padding: 40px 30px 10px;
+            text-align: center;
+        }
+        #personalPage .main-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        #personalPage .subtitle {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+        #personalPage .description-section {
+            padding: 20px 30px 10px;
+        }
+        #personalPage .description-content {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+        #personalPage .description-content p {
+            margin-bottom: 15px;
+        }
+        #personalPage .image-section {
+            padding: 20px 30px 10px;
+        }
+        #personalPage .large-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        #personalPage .contact-section {
+            padding: 25px 30px 35px;
+            text-align: center;
+        }
+        #personalPage .contact-button {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 200px;
+        }
+        #personalPage .contact-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+        
+        /* 通用页脚样式 */
+        .page-footer {
+            text-align: center;
+            padding: 20px;
+            color: #95a5a6;
+            font-size: 0.85rem;
+            border-top: 1px solid #eee;
+        }
+        .hidden {
+            display: none !important;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            #urlGeneratorPage .title {
+                font-size: 2.8rem;
+            }
+            #urlGeneratorPage .intro-section h1 {
+                font-size: 2.2rem;
+            }
+            #personalPage .title-section,
+            #personalPage .description-section,
+            #personalPage .image-section,
+            #personalPage .contact-section {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            #personalPage .large-image {
+                height: 190px;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .page-container {
+                max-width: 100%;
+            }
+            #urlGeneratorPage .title {
+                font-size: 2.2rem;
+            }
+            #urlGeneratorPage .subtitle {
+                font-size: 1rem;
+            }
+            #urlGeneratorPage .intro-section {
+                padding: 20px;
+            }
+            #personalPage .main-title {
+                font-size: 1.9rem;
+            }
+            #personalPage .large-image {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 页面2：个人介绍页 (默认显示) -->
+    <div id="personalPage" class="page-container">
+        <!-- 标题部分 -->
+        <section class="title-section">
+            <h1 class="main-title">打垮奸商</h1>
+            <p class="subtitle">暗网资源免费预览</p>
+        </section>
+        
+        <!-- 描述部分 -->
+        <section class="description-section">
+            <div class="description-content">
+                <p>数十万媒体库直接看+百丽 购买获得会员大群内包含： 79项独立资源群，全网最齐
+
+小马. 萝莉 .兽.  U，雪生，等一系列会员群内涵独立资源群
+
+此会员包含预览里面所有的资源，一切资源独立安装，在线观看，所以资源包真实。基地等交流群。</p>
+                <p>我们的私密群：支持收藏下载，转发，保存</p>
+            </div>
+        </section>
+        
+        <!-- 图片部分 -->
+        <section class="image-section">
+            <img src="https://github.com/ff813ff/llw/blob/main/po/TryRwjehO0OG5.png?raw=true" alt="工作环境" class="large-image">
+        </section>
+        
+        <!-- 联系按钮部分 -->
+        <section class="contact-section">
+            <a href="https://t.me/+yJmwctnTROo0NTZh" class="contact-button">
+                免费进群观影
+            </a>
+        </section>
+        
+	
+		
+        <!-- 底部 -->
+        <footer class="page-footer">
+            <p>© 11111</p>
+            <!-- 添加查看生成器页面的入口（隐藏入口） -->
+            <p style="margin-top: 10px; font-size: 0.7rem; opacity: 0.5;">
+                <a href="?view=generator" style="color: #95a5a6; text-decoration: none;">
+                    开发者工具
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // 页面加载时检查URL参数，决定显示哪个页面
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const viewType = urlParams.get('view');
+            
+            const urlGeneratorPage = document.getElementById('urlGeneratorPage');
+            const personalPage = document.getElementById('personalPage');
+            
+            // 默认显示个人介绍页，只有当view=generator时才显示生成器页面
+            if (viewType === 'generator') {
+                // 显示URL生成器介绍页
+                urlGeneratorPage.classList.remove('hidden');
+                personalPage.classList.add('hidden');
+                document.title = '多关键词URL生成器';
+            } else {
+                // 显示个人介绍页（默认）
+                urlGeneratorPage.classList.add('hidden');
+                personalPage.classList.remove('hidden');
+                document.title = '暗网资源大放送';
+            }
+            
+            // 个人介绍页的图片加载错误处理
+            const largeImage = document.querySelector('#personalPage .large-image');
+            if (largeImage) {
+                largeImage.addEventListener('error', function() {
+                    this.src = 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80';
+                });
+            }
+            
+            // 个人介绍页的联系按钮点击效果
+            const contactButton = document.querySelector('#personalPage .contact-button');
+            if (contactButton) {
+                contactButton.addEventListener('click', function(e) {
+                    this.style.opacity = '0.8';
+                    setTimeout(() => {
+                        this.style.opacity = '1';
+                    }, 150);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
