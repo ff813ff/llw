@@ -20,18 +20,78 @@
         return window.location.pathname.replace(/^\//, '').replace(/\/$/, '');
     }
 
-    // 解析关键词
+    // 解析路径和关键词（支持格式：/path/file.htmlkeyword1-keyword2-...）
+    function parsePathAndKeywords(fullPath) {
+        if (!fullPath || fullPath.trim() === '') {
+            return { path: '', keywords: [] };
+        }
+        
+        // 匹配格式：路径/文件名.html关键词部分
+        // 例如：AEDJWOYG/XXTuKkPRGO4EW.htmlsafada-cerda-feet-...
+        // 注意：.html后面直接跟着关键词，没有分隔符
+        const htmlMatch = fullPath.match(/^(.+?\.html)([^-].*)?$/i);
+        
+        if (htmlMatch) {
+            const pathPart = htmlMatch[1]; // 路径和文件名部分
+            const keywordPart = htmlMatch[2] || ''; // 关键词部分（.html后面的所有内容）
+            
+            // 解析关键词（按连字符分割）
+            // 第一个关键词可能紧跟在.html后面，需要特殊处理
+            let keywords = [];
+            if (keywordPart) {
+                // 如果关键词部分以连字符开头，去掉第一个连字符
+                const cleanKeywordPart = keywordPart.startsWith('-') 
+                    ? keywordPart.substring(1) 
+                    : keywordPart;
+                
+                // 检查第一个"关键词"是否实际上是.html的一部分
+                // 如果keywordPart不以连字符开头，说明第一个词紧跟在.html后面
+                if (!keywordPart.startsWith('-')) {
+                    // 找到第一个连字符的位置
+                    const firstDashIndex = cleanKeywordPart.indexOf('-');
+                    if (firstDashIndex > 0) {
+                        // 第一个关键词是.html后面的部分，直到第一个连字符
+                        const firstKeyword = cleanKeywordPart.substring(0, firstDashIndex);
+                        const restKeywords = cleanKeywordPart.substring(firstDashIndex + 1);
+                        keywords = [firstKeyword, ...restKeywords.split('-')];
+                    } else {
+                        // 只有一个关键词，没有连字符
+                        keywords = [cleanKeywordPart];
+                    }
+                } else {
+                    // 正常情况：关键词用连字符分隔
+                    keywords = cleanKeywordPart.split('-');
+                }
+            }
+            
+            // 过滤空值并清理
+            keywords = keywords
+                .filter(k => k && k.length > 0)
+                .map(k => k.trim())
+                .filter(k => k.length > 0);
+            
+            return { path: pathPart, keywords: keywords };
+        }
+        
+        // 如果没有.html，尝试直接解析为关键词
+        const keywords = fullPath.split('-').filter(k => k.length > 0);
+        return { path: '', keywords: keywords };
+    }
+
+    // 解析关键词（兼容旧格式）
     function parseKeywords(path) {
         if (!path || path.trim() === '') {
             return [];
         }
         
-        // 将路径按连字符分割成关键词
-        const keywords = path.split('-').filter(keyword => keyword.length > 0);
-        
-        // 过滤掉常见的无意义词（可选）
-        const stopWords = ['html', 'htm', 'php', 'asp', 'aspx', 'jsp'];
-        return keywords.filter(keyword => !stopWords.includes(keyword.toLowerCase()));
+        const { keywords } = parsePathAndKeywords(path);
+        return keywords;
+    }
+    
+    // 获取路径部分
+    function getPathPart(path) {
+        const { path: pathPart } = parsePathAndKeywords(path);
+        return pathPart;
     }
 
     // 显示当前URL
@@ -90,6 +150,23 @@
         urlElement.innerHTML = urlText;
     }
 
+    // 显示路径信息
+    function displayPathInfo() {
+        const path = getUrlPath();
+        const { path: pathPart, keywords } = parsePathAndKeywords(path);
+        
+        // 如果有路径部分，显示在页面上
+        const pathInfoElement = document.getElementById('pathInfo');
+        if (pathInfoElement) {
+            if (pathPart) {
+                pathInfoElement.textContent = `路径: ${pathPart}`;
+                pathInfoElement.style.display = 'block';
+            } else {
+                pathInfoElement.style.display = 'none';
+            }
+        }
+    }
+
     // 初始化
     function init() {
         const path = getUrlPath();
@@ -97,6 +174,7 @@
         
         displayCurrentUrl();
         displayKeywords(keywords);
+        displayPathInfo();
         
         // 如果有关键词，高亮显示
         if (keywords.length > 0) {
@@ -104,7 +182,9 @@
         }
         
         console.log('URL路径:', path);
-        console.log('解析的关键词:', keywords);
+        const { path: pathPart, keywords: parsedKeywords } = parsePathAndKeywords(path);
+        console.log('路径部分:', pathPart);
+        console.log('解析的关键词:', parsedKeywords);
     }
 
     // 页面加载完成后初始化
@@ -147,9 +227,9 @@
     ];
 
     // 生成URL路径
-    function generateUrlPath(keywords) {
+    function generateUrlPath(keywords, format = 'simple', pathPrefix = '') {
         if (!keywords || keywords.length === 0) {
-            return '';
+            return pathPrefix || '';
         }
         
         // 清理关键词：去除空格，转换为小写，过滤空值
@@ -158,7 +238,15 @@
             .filter(k => k.length > 0)
             .filter((value, index, self) => self.indexOf(value) === index); // 去重
         
-        return cleanedKeywords.join('-');
+        const keywordString = cleanedKeywords.join('-');
+        
+        if (format === 'path-html' && pathPrefix) {
+            // 路径格式：路径/文件名.html关键词1-关键词2-...
+            return `${pathPrefix}${keywordString}`;
+        }
+        
+        // 简单格式：关键词1-关键词2-...
+        return keywordString;
     }
 
     // 解析输入的关键词
@@ -179,13 +267,23 @@
         const input = document.getElementById('keywordInput');
         const output = document.getElementById('generatedUrl');
         const previewLink = document.getElementById('previewLink');
+        const formatSelect = document.getElementById('urlFormat');
+        const pathInput = document.getElementById('pathInput');
         
         if (!input || !output) return;
         
         const keywords = parseInputKeywords(input.value);
-        const path = generateUrlPath(keywords);
+        const format = formatSelect ? formatSelect.value : 'simple';
+        const pathPrefix = (format === 'path-html' && pathInput) ? pathInput.value.trim() : '';
         
-        if (path) {
+        // 如果使用路径格式但没有提供路径前缀，使用默认值
+        const finalPathPrefix = (format === 'path-html' && !pathPrefix) 
+            ? 'AEDJWOYG/XXTuKkPRGO4EW.html' 
+            : pathPrefix;
+        
+        const path = generateUrlPath(keywords, format, finalPathPrefix);
+        
+        if (path || keywords.length > 0) {
             const baseUrl = window.location.origin;
             const fullUrl = `${baseUrl}/${path}`;
             output.textContent = fullUrl;
@@ -259,12 +357,30 @@
         }
     }
 
+    // 切换URL格式
+    function toggleFormat() {
+        const formatSelect = document.getElementById('urlFormat');
+        const pathInputGroup = document.getElementById('pathInputGroup');
+        
+        if (formatSelect && pathInputGroup) {
+            const format = formatSelect.value;
+            if (format === 'path-html') {
+                pathInputGroup.style.display = 'block';
+            } else {
+                pathInputGroup.style.display = 'none';
+            }
+            updateGeneratedUrl();
+        }
+    }
+
     // 初始化生成器
     function initGenerator() {
         const generateBtn = document.getElementById('generateBtn');
         const copyBtn = document.getElementById('copyBtn');
         const exampleBtn = document.getElementById('loadExampleBtn');
         const input = document.getElementById('keywordInput');
+        const formatSelect = document.getElementById('urlFormat');
+        const pathInput = document.getElementById('pathInput');
         
         if (generateBtn) {
             generateBtn.addEventListener('click', updateGeneratedUrl);
@@ -276,6 +392,16 @@
         
         if (exampleBtn) {
             exampleBtn.addEventListener('click', loadExampleKeywords);
+        }
+        
+        if (formatSelect) {
+            formatSelect.addEventListener('change', toggleFormat);
+            // 初始化显示状态
+            toggleFormat();
+        }
+        
+        if (pathInput) {
+            pathInput.addEventListener('input', updateGeneratedUrl);
         }
         
         if (input) {

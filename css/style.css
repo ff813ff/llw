@@ -381,3 +381,40 @@ section {
     box-shadow: 0 4px 8px rgba(156, 39, 176, 0.3);
 }
 
+/* 格式选择器 */
+.format-selector {
+    margin-bottom: 15px;
+}
+
+.format-selector label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #666;
+}
+
+.format-selector select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1em;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.format-selector select:focus {
+    outline: none;
+    border-color: #2196f3;
+}
+
+.path-input-group {
+    margin-top: 10px;
+}
+
+.path-info {
+    color: #1976d2;
+    font-weight: 500;
+}
+
