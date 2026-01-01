@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 使用 player 类型的卡片，推特会展示视频播放器 -->
     <meta name="twitter:card" content="player">
     <meta name="twitter:title" content="精彩视频">
     <meta name="twitter:description" content="点击观看精彩内容，视频将在外部站点播放">
-    <meta name="twitter:image" content="https://www.w3schools.com/html/img_chania.jpg"> <!-- 替换为你的视频缩略图 URL -->
-    <meta name="twitter:player" content="https://www.w3schools.com/html/movie.mp4"> <!-- 替换为你的视频 URL -->
+    <meta name="twitter:image" content="https://www.w3schools.com/html/img_chania.jpg"> <!-- 视频缩略图 -->
+    <meta name="twitter:player" content="https://www.w3schools.com/html/movie.mp4"> <!-- 视频文件链接 -->
     <meta name="twitter:player:width" content="800">
     <meta name="twitter:player:height" content="450">
     <title>视频展示与外站跳转</title>
@@ -25,44 +26,23 @@
             width: 100%;
             height: auto;
         }
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
 
     <div class="video-container" id="videoContainer">
         <video id="videoPlayer" controls>
-            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4"> <!-- 替换为你的视频 URL -->
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4"> <!-- 视频链接 -->
             你的浏览器不支持视频播放。
         </video>
-        <div class="overlay">点击观看视频</div>
     </div>
 
     <script>
         const videoContainer = document.getElementById("videoContainer");
-        const overlay = document.querySelector(".overlay");
 
         // 当点击视频容器时，跳转到外部网站
         videoContainer.addEventListener("click", function() {
-            window.location.href = "https://www.w3schools.com";  // 外部站点链接，替换为实际的外链
-        });
-
-        // 当视频开始播放时，隐藏覆盖层
-        document.getElementById("videoPlayer").addEventListener("play", function() {
-            overlay.style.display = "none"; // 隐藏"点击观看"文本
+            window.location.href = "https://www.w3schools.com";  // 外部站点链接
         });
     </script>
 
