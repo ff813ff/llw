@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 使用 player 类型的卡片，推特会展示视频播放器 -->
     <meta name="twitter:card" content="player">
-    <meta name="twitter:title" content="精彩视频">
+    <meta name="twitter:title" content="精彩视频合集">
     <meta name="twitter:description" content="点击观看精彩内容，视频将在外部站点播放">
     <meta name="twitter:image" content="https://www.w3schools.com/html/img_chania.jpg"> <!-- 视频缩略图 -->
-    <meta name="twitter:player" content="https://www.w3schools.com/html/movie.mp4"> <!-- 视频文件链接 -->
+    <meta name="twitter:player" content="https://www.w3schools.com/html/mov_bbb.mp4"> <!-- 视频合集页面链接 -->
     <meta name="twitter:player:width" content="800">
     <meta name="twitter:player:height" content="450">
     <title>视频展示与外站跳转</title>
     <style>
-        /* 样式控制播放器的显示 */
         .video-container {
             width: 100%;
             max-width: 800px;
@@ -22,27 +21,50 @@
             overflow: hidden;
             cursor: pointer;
         }
+
         video {
             width: 100%;
             height: auto;
+        }
+
+        /* 视频容器滑动效果 */
+        .video-slider {
+            display: flex;
+            overflow-x: scroll;
+            gap: 20px;
+        }
+
+        .video-slider video {
+            flex: 0 0 auto;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
-    <div class="video-container" id="videoContainer">
-        <video id="videoPlayer" controls>
-            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4"> <!-- 视频链接 -->
+    <div class="video-slider" id="videoSlider">
+        <video id="videoPlayer1" controls autoplay muted>
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4"> <!-- 视频1 -->
+            你的浏览器不支持视频播放。
+        </video>
+        <video id="videoPlayer2" controls autoplay muted>
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4"> <!-- 视频2 -->
+            你的浏览器不支持视频播放。
+        </video>
+        <video id="videoPlayer3" controls autoplay muted>
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4"> <!-- 视频3 -->
             你的浏览器不支持视频播放。
         </video>
     </div>
 
     <script>
-        const videoContainer = document.getElementById("videoContainer");
+        const videoSlider = document.getElementById("videoSlider");
 
-        // 当点击视频容器时，跳转到外部网站
-        videoContainer.addEventListener("click", function() {
-            window.location.href = "https://www.w3schools.com";  // 外部站点链接
+        // 给每个视频容器添加点击事件，跳转到外部站点
+        videoSlider.addEventListener("click", function(event) {
+            if (event.target.tagName === "VIDEO") {
+                window.location.href = "https://www.w3schools.com";  // 外部站点链接
+            }
         });
     </script>
 
