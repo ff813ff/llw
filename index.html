@@ -1,43 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-https://x.com/kevinliao72/status/2006581602927992935/video/1 
-这个链接在放进推文准备发送的时候为什么会变成一个来自别人的视频并自动播放， 是哪些关键信息做出这种效果的，是元标签还是什么影响到，我需要全部的学习资料，并且给我一份案例
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wataa 视频</title>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <!-- Twitter Cards (X Cards) -->
+    <!-- Twitter/X Player Card 核心标签 -->
     <meta name="twitter:card" content="player">
-    <meta name="twitter:site" content="@kevinliao72">  <!-- 原作者账号 -->
-    <meta name="twitter:title" content="新年快乐">
-    <meta name="twitter:description" content="一个短视频问候">
-    <meta name="twitter:player" content="https://x.com/kevinliao72/status/2006581602927992935/video/1">  <!-- 播放器 iframe URL -->
-    <meta name="twitter:player:width" content="392">
-    <meta name="twitter:player:height" content="270">
-    <meta name="twitter:player:stream" content="https://video.twimg.com/amplify_video/2006581591271936000/vid/avc1/392x270/oXp811iPJqsvH65s.mp4">  <!-- 视频文件 URL -->
+    <meta name="twitter:site" content="@yourusername">  <!-- 替换为你的 X @账号，例如 @marsha38xxx -->
+    <meta name="twitter:title" content="Wataa">
+    <meta name="twitter:description" content="一个精彩的视频演示">
+    <meta name="twitter:image" content="https://peach.blender.org/wp-content/uploads/big_buck_bunny_poster.jpg">  <!-- 缩略图 URL -->
+    <meta name="twitter:player" content="https://example.com/player.html">  <!-- 替换为你的播放器页面 URL -->
+    <meta name="twitter:player:width" content="480">  <!-- 视频宽度 -->
+    <meta name="twitter:player:height" content="360">  <!-- 视频高度 -->
+    <meta name="twitter:player:stream" content="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">  <!-- 视频文件直接 URL -->
     <meta name="twitter:player:stream:content_type" content="video/mp4">
-    <meta name="twitter:image" content="https://pbs.twimg.com/media/...thumbnail.jpg">  <!-- 缩略图 URL -->
 
-    <!-- Open Graph (Fallback) -->
-    <meta property="og:type" content="video.other">
-    <meta property="og:title" content="新年快乐">
-    <meta property="og:description" content="一个短视频问候">
-    <meta property="og:video" content="https://video.twimg.com/amplify_video/2006581591271936000/vid/avc1/392x270/oXp811iPJqsvH65s.mp4">
-    <meta property="og:video:secure_url" content="https://video.twimg.com/amplify_video/2006581591271936000/vid/avc1/392x270/oXp811iPJqsvH65s.mp4">
+    <!-- Open Graph 辅助标签（自定义来源显示用） -->
+    <meta property="og:site_name" content="My Custom Video Site">  <!-- 这里自定义来源显示，例如 "Wataa Video" -->
+    <meta property="og:title" content="Wataa">
+    <meta property="og:description" content="一个精彩的视频演示">
+    <meta property="og:image" content="https://peach.blender.org/wp-content/uploads/big_buck_bunny_poster.jpg">
+    <meta property="og:video" content="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
+    <meta property="og:video:secure_url" content="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
     <meta property="og:video:type" content="video/mp4">
-    <meta property="og:video:width" content="392">
-    <meta property="og:video:height" content="270">
-    <meta property="og:image" content="https://pbs.twimg.com/media/...thumbnail.jpg">
+    <meta property="og:video:width" content="480">
+    <meta property="og:video:height" content="360">
 </head>
 <body>
-    <!-- 页面内容 -->
-    <video src="https://video.twimg.com/amplify_video/2006581591271936000/vid/avc1/392x270/oXp811iPJqsvH65s.mp4" autoplay loop muted></video>
-</body>
-</html>
-    <title>Wataa - @marsha38xxx on X</title>
-</head>
-<body>
-    <!-- 你的页面内容 -->
+    <h1>Wataa</h1>
+    <p>这是一个测试视频页面。你可以在 X 上分享这个页面的 URL 来显示嵌入播放器。</p>
+    <!-- 可选：直接嵌入播放器预览 -->
+    <iframe src="https://example.com/player.html" width="480" height="360" frameborder="0"></iframe>
 </body>
 </html>
