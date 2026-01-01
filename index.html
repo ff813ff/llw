@@ -6,8 +6,8 @@
     <meta name="twitter:card" content="player">
     <meta name="twitter:title" content="精彩视频">
     <meta name="twitter:description" content="点击观看精彩内容，视频将在外部站点播放">
-    <meta name="twitter:image" content="https://www.hieudo.site/thumbnail.jpg"> <!-- 替换为你的视频缩略图 URL -->
-    <meta name="twitter:player" content="https://www.hieudo.site/video.mp4"> <!-- 替换为你的视频 URL -->
+    <meta name="twitter:image" content="https://www.w3schools.com/html/img_chania.jpg"> <!-- 替换为你的视频缩略图 URL -->
+    <meta name="twitter:player" content="https://www.w3schools.com/html/movie.mp4"> <!-- 替换为你的视频 URL -->
     <meta name="twitter:player:width" content="800">
     <meta name="twitter:player:height" content="450">
     <title>视频展示与外站跳转</title>
@@ -45,7 +45,7 @@
 
     <div class="video-container" id="videoContainer">
         <video id="videoPlayer" controls>
-            <source src="https://www.hieudo.site/video.mp4" type="video/mp4"> <!-- 替换为你的视频 URL -->
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4"> <!-- 替换为你的视频 URL -->
             你的浏览器不支持视频播放。
         </video>
         <div class="overlay">点击观看视频</div>
@@ -57,7 +57,7 @@
 
         // 当点击视频容器时，跳转到外部网站
         videoContainer.addEventListener("click", function() {
-            window.location.href = "https://www.hieudo.site";  // 外部站点链接，替换为实际的外链
+            window.location.href = "https://www.w3schools.com";  // 外部站点链接，替换为实际的外链
         });
 
         // 当视频开始播放时，隐藏覆盖层
