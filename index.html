@@ -1,28 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Custom Video Player</title>
+  <title>Exciting Video with Twitter Card</title>
 
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="player">
+  <!-- Twitter Card Meta Tags for large image/media -->
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@your_twitter_handle">
   <meta name="twitter:title" content="Exciting Video">
   <meta name="twitter:description" content="Watch this exciting video that plays automatically!">
-  <meta name="twitter:image" content="https://www.w3schools.com/html/img_chania.jpg"> <!-- Replace with valid image link -->
-  <meta name="twitter:player" content="https://example.com/video-player.html"> <!-- Replace with valid player link -->
-  <meta name="twitter:player:width" content="600">
-  <meta name="twitter:player:height" content="400">
+  <meta name="twitter:image" content="https://www.w3schools.com/html/img_chania.jpg"> <!-- Valid video thumbnail -->
 </head>
 <body>
 
-  <!-- Video Player embedded in page -->
+  <!-- Embedded Video Player -->
   <video width="100%" height="auto" autoplay muted loop>
-    <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4"> <!-- Replace with your video link -->
+    <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4"> <!-- Valid video source -->
     Your browser does not support the video tag.
   </video>
+
+  <!-- Redirect to external site on click -->
+  <script>
+    document.querySelector('video').addEventListener('click', function() {
+      window.location.href = "https://example.com";  // Replace with your actual external URL
+    });
+  </script>
 
 </body>
 </html>
