@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Wataa - Post by @marsha38xxx on X">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Marsha Morales">
-    <meta name="keywords" content="social, media, post">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Wataa - Post by @marsha38xxx on X">
-    <meta property="og:description" content="Check out this post on X by @marsha38xxx about Wataa">
-    <meta property="og:image" content="https://example.com/preview-image.jpg">
-    <meta property="og:url" content="https://x.com/marsha38xxx/status/2006274129612472475">
-    <meta property="og:site_name" content="X">
-    <meta property="og:type" content="article">
-    <meta property="og:locale" content="en_US">
-    
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@kevinliao72">
-<meta name="twitter:creator" content="@kevinliao72">
-<meta name="twitter:title" content="新年快乐">
-<meta name="twitter:description" content="The following frames and their corresponding subtitles have been sampled from the video: [Image at 0.00 seconds] [Image at 1.00 seconds] [Image at 2.00 seconds]">
-<meta name="twitter:image" content="https://pbs.twimg.com/amplify_video_thumb/2006581591271936000/img/kdtPzD_lvgMP8rDg.jpg">
-<meta name="twitter:url" content="https://x.com/kevinliao72/status/2006581602927992935">
-<meta name="twitter:domain" content="x.com">
+https://x.com/kevinliao72/status/2006581602927992935/video/1 
+这个链接在放进推文准备发送的时候为什么会变成一个来自别人的视频并自动播放， 是哪些关键信息做出这种效果的，是元标签还是什么影响到，我需要全部的学习资料，并且给我一份案例
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Twitter Cards (X Cards) -->
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:site" content="@kevinliao72">  <!-- 原作者账号 -->
+    <meta name="twitter:title" content="新年快乐">
+    <meta name="twitter:description" content="一个短视频问候">
+    <meta name="twitter:player" content="https://x.com/kevinliao72/status/2006581602927992935/video/1">  <!-- 播放器 iframe URL -->
+    <meta name="twitter:player:width" content="392">
+    <meta name="twitter:player:height" content="270">
+    <meta name="twitter:player:stream" content="https://video.twimg.com/amplify_video/2006581591271936000/vid/avc1/392x270/oXp811iPJqsvH65s.mp4">  <!-- 视频文件 URL -->
+    <meta name="twitter:player:stream:content_type" content="video/mp4">
+    <meta name="twitter:image" content="https://pbs.twimg.com/media/...thumbnail.jpg">  <!-- 缩略图 URL -->
+
+    <!-- Open Graph (Fallback) -->
+    <meta property="og:type" content="video.other">
+    <meta property="og:title" content="新年快乐">
+    <meta property="og:description" content="一个短视频问候">
+    <meta property="og:video" content="https://video.twimg.com/amplify_video/2006581591271936000/vid/avc1/392x270/oXp811iPJqsvH65s.mp4">
+    <meta property="og:video:secure_url" content="https://video.twimg.com/amplify_video/2006581591271936000/vid/avc1/392x270/oXp811iPJqsvH65s.mp4">
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="392">
+    <meta property="og:video:height" content="270">
+    <meta property="og:image" content="https://pbs.twimg.com/media/...thumbnail.jpg">
+</head>
+<body>
+    <!-- 页面内容 -->
+    <video src="https://video.twimg.com/amplify_video/2006581591271936000/vid/avc1/392x270/oXp811iPJqsvH65s.mp4" autoplay loop muted></video>
+</body>
+</html>
     <title>Wataa - @marsha38xxx on X</title>
 </head>
 <body>
